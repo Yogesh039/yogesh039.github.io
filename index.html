@@ -12,6 +12,13 @@
       background: url('https://www.transparenttextures.com/patterns/cubes.png');
       background-color: #f4f7fa;
       color: #333;
+      scroll-behavior: smooth;
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    .dark-mode {
+      background-color: #1c1c1c;
+      color: #f0f0f0;
     }
 
     header {
@@ -19,6 +26,7 @@
       color: white;
       padding: 40px 20px;
       text-align: center;
+      position: relative;
     }
 
     header h1 {
@@ -29,6 +37,24 @@
     header p {
       margin-top: 10px;
       font-size: 1.2rem;
+    }
+
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: #333;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .dark-toggle:hover {
+      background: #ddd;
     }
 
     .container {
@@ -43,6 +69,14 @@
       border-radius: 15px;
       margin-bottom: 30px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     section h2 {
@@ -88,11 +122,12 @@
       background: #f2f2f2;
       padding: 10px 15px;
       border-radius: 8px;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .contact a:hover {
       background: #e0e7ff;
+      transform: scale(1.05);
     }
 
     .contact img {
@@ -134,6 +169,20 @@
       font-size: 0.9rem;
       color: #777;
     }
+
+    .dark-mode section {
+      background: #2c2c2c;
+    }
+
+    .dark-mode .contact a {
+      background: #333;
+      color: #f0f0f0;
+    }
+
+    .dark-mode .skills span {
+      background-color: #444;
+      color: #f0f0f0;
+    }
   </style>
 </head>
 <body>
@@ -141,16 +190,17 @@
   <header>
     <h1>Yogesh Srinivas</h1>
     <p>Data Engineer | Bangalore, India</p>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark</button>
   </header>
 
   <div class="container">
 
-    <section>
+    <section class="reveal">
       <h2>About Me</h2>
       <p>I’m Yogesh, a passionate data engineer with over 3.5 years of experience building scalable ETL pipelines and transforming data into actionable insights. Skilled in working with SQL, Python, PySpark, Tableau Prep, and Databricks, I love automating data workflows and optimizing systems.</p>
     </section>
 
-    <section class="skills">
+    <section class="skills reveal">
       <h2>Skills</h2>
       <span style="background-color:#e0f7fa; color:#00796b;">Python</span>
       <span style="background-color:#fce4ec; color:#c2185b;">SQL</span>
@@ -161,7 +211,7 @@
       <span style="background-color:#e1f5fe; color:#0277bd;">Automation</span>
     </section>
 
-    <section class="projects">
+    <section class="projects reveal">
       <h2>Projects</h2>
       <ul>
         <li><strong>Telecom ETL:</strong> Processed large-scale customer usage data for a major telecom provider.</li>
@@ -172,7 +222,7 @@
       </ul>
     </section>
 
-    <section>
+    <section class="reveal">
       <h2>Contact Me</h2>
       <div class="contact">
         <a href="mailto:yogeshsrin@gmail.com">
@@ -194,10 +244,8 @@
       </div>
 
       <div class="message-form">
-        <form action="mailto:yogeshsrin@gmail.com" method="post" enctype="text/plain">
-          <textarea name="message" placeholder="Write a message..."></textarea>
-          <button type="submit">Send Message</button>
-        </form>
+        <textarea id="msgInput" placeholder="Write a message..."></textarea>
+        <button type="button" onclick="sendMessage()">Send Message</button>
       </div>
     </section>
 
@@ -206,6 +254,35 @@
   <footer>
     &copy; 2025 Yogesh Srinivas | Built with ❤️ and HTML/CSS
   </footer>
+
+  <script>
+    // Fade-in on scroll
+    const sections = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          section.classList.add('show');
+        }
+      });
+    });
+
+    // Dark mode toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // Simulated message handler
+    function sendMessage() {
+      const msg = document.getElementById('msgInput').value;
+      if (msg.trim()) {
+        alert('Thank you for your message, Yogesh will get back to you soon!');
+        document.getElementById('msgInput').value = '';
+      } else {
+        alert('Please enter a message before submitting.');
+      }
+    }
+  </script>
 
 </body>
 </html>
