@@ -3,158 +3,181 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yogesh | ETL Engineer Profile</title>
+  <title>Yogesh's ETL Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background-color: #0d0d0d;
-      color: #f0f0f0;
-      overflow-x: hidden;
+      font-family: 'Roboto', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(90deg, #283048, #859398);
+      padding: 40px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 3rem;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
     }
 
     .section {
       padding: 60px 20px;
-      margin: 40px auto;
       max-width: 1000px;
+      margin: auto;
+      margin-bottom: 40px;
+      background: #1b1b1b;
       border-left: 5px solid #ff6347;
       border-radius: 10px;
-      background-color: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 20px #222;
-      position: relative;
+      box-shadow: 0 0 15px rgba(255, 99, 71, 0.3);
     }
 
     .section h2 {
-      font-size: 2.5rem;
       margin-bottom: 20px;
       color: #ff6347;
-      text-shadow: 0 0 10px #ff6347;
+      font-size: 2rem;
     }
 
     .section p, .section ul {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #f0f0f0;
-    }
-
-    ul.skills {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul.skills li {
-      margin: 8px 0;
-      font-weight: bold;
+      color: #ddd;
       font-size: 1.1rem;
     }
 
-    ul.skills li.sql { color: #00ffff; }
-    ul.skills li.python { color: #f5b500; }
-    ul.skills li.pyspark { color: #ff66cc; }
-    ul.skills li.databricks { color: #ff8800; }
-    ul.skills li.tableau { color: #66ff66; }
-
-    .etl-graphic {
-      width: 100%;
-      height: auto;
-      margin: 20px 0;
-      border: 2px solid #ff6347;
-      border-radius: 10px;
+    .skills span {
+      display: inline-block;
+      background: #333;
+      color: #fff;
+      padding: 8px 12px;
+      margin: 6px;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: all 0.3s ease;
     }
 
-    .header {
-      text-align: center;
-      padding: 60px 20px 20px;
-      background: linear-gradient(to right, #111, #333);
-    }
+    .skills span:nth-child(3n) { background: #0077b6; }
+    .skills span:nth-child(3n+1) { background: #f77f00; }
+    .skills span:nth-child(3n+2) { background: #90be6d; }
 
-    .header h1 {
-      font-size: 3rem;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff;
-    }
-
-    .header p {
-      font-size: 1.3rem;
-      color: #ff6347;
-    }
-
-    .footer {
+    footer {
       text-align: center;
       padding: 30px;
-      background: #111;
-      color: #888;
-      border-top: 2px solid #ff6347;
+      background: #121212;
+      color: #aaa;
+      font-size: 1rem;
     }
 
-    .footer a {
-      color: #f5b500;
+    footer a {
+      color: #ff6347;
       text-decoration: none;
-      margin: 0 10px;
+      font-weight: bold;
     }
 
-    .footer a:hover {
-      color: #00ffff;
+    footer a:hover {
+      color: #ffd166;
+    }
+
+    .etl-graphic {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .etl-box {
+      background: #262626;
+      padding: 20px;
+      width: 250px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 99, 71, 0.2);
+    }
+
+    .etl-box h3 {
+      color: #ffd166;
+      margin-bottom: 10px;
+    }
+
+    .etl-box p {
+      font-size: 0.95rem;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <div class="header">
+
+  <header>
     <h1>Yogesh Srinivas</h1>
-    <p>Data Engineer | ETL Architect | Bangalore</p>
-  </div>
+    <p>Data Engineer | ETL Specialist | Fitness Enthusiast</p>
+  </header>
 
-  <!-- Extract Phase -->
   <section class="section">
-    <h2>Extract</h2>
-    <p>I gather data from diverse sources—APIs, databases, flat files, and logs—ensuring integrity and freshness. My extraction layer includes:</p>
-    <ul class="skills">
-      <li class="sql">SQL — for structured data querying</li>
-      <li class="python">Python — for scripting automated extractors</li>
-      <li class="databricks">Databricks Notebooks — orchestrated extract jobs</li>
-    </ul>
-    <img class="etl-graphic" src="https://miro.medium.com/v2/resize:fit:1000/format:webp/1*xHjqgl2sRyzGbA7CoCjAyg.png" alt="Extract Phase Graphic">
+    <h2>Extract - Who I Am</h2>
+    <p>
+      Hello! I'm Yogesh, a Data Engineer based in Bangalore. I have 3.5+ years of experience building robust, scalable ETL pipelines that drive data insights. I’m passionate about problem-solving, optimizing data workflows, and staying fit both mentally and physically. In my free time, I enjoy working out, hiking, and experimenting with tech.
+    </p>
   </section>
 
-  <!-- Transform Phase -->
   <section class="section">
-    <h2>Transform</h2>
-    <p>I clean, enrich, and shape data into high-quality assets for analytics and downstream systems.</p>
-    <ul class="skills">
-      <li class="pyspark">PySpark — scalable data transformation</li>
-      <li class="python">Python Pandas — quick and detailed data wrangling</li>
-      <li class="sql">SQL Window Functions — data aggregations & joins</li>
-    </ul>
-    <img class="etl-graphic" src="https://www.integrate.io/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdsji0ob9%2Fproduction%2F527ec1851307e14b4c34dbd1dc2342068d0f8653-1200x630.png&w=1200&q=75" alt="Transform Phase Graphic">
+    <h2>Transform - My Skills</h2>
+    <div class="skills">
+      <span>SQL</span>
+      <span>Python</span>
+      <span>PySpark</span>
+      <span>Databricks</span>
+      <span>Tableau Prep</span>
+      <span>AWS</span>
+      <span>Airflow</span>
+      <span>Git</span>
+      <span>Data Modeling</span>
+      <span>ETL Optimization</span>
+    </div>
   </section>
 
-  <!-- Load Phase -->
   <section class="section">
-    <h2>Load</h2>
-    <p>Processed datasets are loaded into warehouses or analytics tools for consumption and visualization.</p>
-    <ul class="skills">
-      <li class="databricks">Databricks Delta Lake — optimized data storage</li>
-      <li class="tableau">Tableau Prep & Dashboards — storytelling with data</li>
-      <li class="sql">Snowflake / BigQuery — warehouse loading and querying</li>
-    </ul>
-    <img class="etl-graphic" src="https://hevodata.com/learn/wp-content/uploads/2021/11/image-79.png" alt="Load Phase Graphic">
-  </section>
-
-  <!-- Contact -->
-  <section class="section">
-    <h2>Contact</h2>
+    <h2>Load - Let’s Connect</h2>
     <p>Email: <a href="mailto:yogeshsrin@gmail.com">yogeshsrin@gmail.com</a></p>
     <p>Phone: +91-9743579039</p>
+    <p>
+      GitHub: <a href="https://github.com/Yogesh039" target="_blank">Yogesh039</a><br>
+      LinkedIn: <a href="https://www.linkedin.com/in/yogesh-s-315a28166" target="_blank">Yogesh's Profile</a>
+    </p>
+
+    <div class="etl-graphic">
+      <div class="etl-box">
+        <h3>Extract</h3>
+        <p>Collecting raw data from multiple sources and understanding the foundation.</p>
+      </div>
+      <div class="etl-box">
+        <h3>Transform</h3>
+        <p>Cleaning, enriching, and reshaping data — just like I enhance my skills and projects.</p>
+      </div>
+      <div class="etl-box">
+        <h3>Load</h3>
+        <p>Deploying insights into production — or delivering value to teams and users.</p>
+      </div>
+    </div>
   </section>
 
-  <div class="footer">
-    <p>© 2025 Yogesh Srinivas | Built with ❤️ and ETL logic</p>
-    <p>
-      <a href="https://github.com/Yogesh039">GitHub</a> |
-      <a href="https://www.linkedin.com/in/yogesh-s-315a28166">LinkedIn</a>
-    </p>
-  </div>
+  <footer>
+    <p>&copy; 2025 Yogesh Srinivas. Built with 💡 and ☕</p>
+  </footer>
+
 </body>
 </html>
