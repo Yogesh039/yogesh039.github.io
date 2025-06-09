@@ -17,9 +17,6 @@
       font-family: 'Inter', sans-serif;
       background: linear-gradient(to bottom right, #f4f7fa, #e8ecf3);
       color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
 
     header {
@@ -44,7 +41,6 @@
       max-width: 1000px;
       margin: auto;
       padding: 40px 20px;
-      flex-grow: 1;
     }
 
     section {
@@ -123,7 +119,6 @@
 
     .message-form {
       margin-top: 30px;
-      width: 100%;
     }
 
     .message-form textarea {
@@ -134,7 +129,6 @@
       border-radius: 12px;
       border: 1px solid #ccc;
       resize: vertical;
-      font-family: 'Inter', sans-serif;
     }
 
     .message-form button {
@@ -159,52 +153,6 @@
       padding: 20px;
       font-size: 0.9rem;
       color: #777;
-      background: #f5f7fa;
-      box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
-      user-select: none;
-    }
-
-    /* Snake Game Styles */
-    #snake-game-section {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(8px);
-      max-width: 600px;
-      margin: 40px auto 60px auto;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    #game-title {
-      font-size: 2rem;
-      color: #2575fc;
-      margin-bottom: 10px;
-    }
-
-    #score {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #444;
-    }
-
-    canvas {
-      background-color: #000;
-      border-radius: 15px;
-      touch-action: none; /* Disable default touch actions for mobile swipe */
-    }
-
-    #controls-info {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    @media (max-width: 650px) {
-      #snake-game-section {
-        width: 95%;
-        padding: 15px;
-      }
     }
   </style>
 </head>
@@ -278,16 +226,6 @@
     &copy; 2025 Yogesh Srinivas | Built with ❤️ and HTML/CSS
   </footer>
 
-  <!-- Snake Game Section -->
-  <section id="snake-game-section" data-aos="fade-up">
-    <h2 id="game-title">Play Snake Game</h2>
-    <div id="score">Score: 0</div>
-    <canvas id="snake-game" width="400" height="400" aria-label="Snake game"></canvas>
-    <div id="controls-info">
-      Use arrow keys (PC) or swipe on the game area (Mobile) to control the snake.
-    </div>
-  </section>
-
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
@@ -295,178 +233,6 @@
       offset: 120,
       once: true
     });
-  </script>
-
-  <script>
-    (() => {
-      const canvas = document.getElementById('snake-game');
-      const ctx = canvas.getContext('2d');
-
-      const scale = 20; // size of snake segments and food
-      const rows = canvas.height / scale;
-      const cols = canvas.width / scale;
-
-      let snake = [];
-      let direction = 'RIGHT';
-      let nextDirection = 'RIGHT';
-      let food = {};
-      let score = 0;
-      let gameInterval = null;
-
-      // Initialize snake in the center
-      function initSnake() {
-        snake = [
-          { x: Math.floor(cols / 2), y: Math.floor(rows / 2) },
-          { x: Math.floor(cols / 2) - 1, y: Math.floor(rows / 2) },
-          { x: Math.floor(cols / 2) - 2, y: Math.floor(rows / 2) }
-        ];
-        direction = 'RIGHT';
-        nextDirection = 'RIGHT';
-        score = 0;
-        document.getElementById('score').innerText = 'Score: ' + score;
-      }
-
-      // Place food in a random spot not occupied by the snake
-      function placeFood() {
-        let newFood;
-        while (true) {
-          newFood = {
-            x: Math.floor(Math.random() * cols),
-            y: Math.floor(Math.random() * rows)
-          };
-          if (!snake.some(segment => segment.x === newFood.x && segment.y === newFood.y)) {
-            break;
-          }
-        }
-        food = newFood;
-      }
-
-      // Draw everything
-      function draw() {
-        // Clear
-        ctx.fillStyle = '#000';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Draw snake
-        ctx.fillStyle = '#4caf50';
-        snake.forEach((segment, idx) => {
-          ctx.fillRect(segment.x * scale, segment.y * scale, scale, scale);
-          // Draw a lighter head
-          if (idx === 0) {
-            ctx.fillStyle = '#81c784';
-            ctx.fillRect(segment.x * scale, segment.y * scale, scale, scale);
-            ctx.fillStyle = '#4caf50';
-          }
-        });
-
-        // Draw food
-        ctx.fillStyle = '#f44336';
-        ctx.beginPath();
-        ctx.arc(
-          food.x * scale + scale / 2,
-          food.y * scale + scale / 2,
-          scale / 2,
-          0,
-          2 * Math.PI
-        );
-        ctx.fill();
-      }
-
-      // Update snake position
-      function update() {
-        direction = nextDirection;
-
-        // Calculate new head position
-        let head = { ...snake[0] };
-        switch (direction) {
-          case 'LEFT': head.x -= 1; break;
-          case 'UP': head.y -= 1; break;
-          case 'RIGHT': head.x += 1; break;
-          case 'DOWN': head.y += 1; break;
-        }
-
-        // Wrap around edges
-        if (head.x < 0) head.x = cols - 1;
-        if (head.x >= cols) head.x = 0;
-        if (head.y < 0) head.y = rows - 1;
-        if (head.y >= rows) head.y = 0;
-
-        // Check self collision
-        if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
-          gameOver();
-          return;
-        }
-
-        // Add new head
-        snake.unshift(head);
-
-        // Check if ate food
-        if (head.x === food.x && head.y === food.y) {
-          score++;
-          document.getElementById('score').innerText = 'Score: ' + score;
-          placeFood();
-        } else {
-          // Remove tail
-          snake.pop();
-        }
-
-        draw();
-      }
-
-      function gameOver() {
-        clearInterval(gameInterval);
-        alert(`Game Over! Your score: ${score}`);
-        initSnake();
-        placeFood();
-        gameInterval = setInterval(update, 120);
-      }
-
-      // Handle keyboard controls
-      window.addEventListener('keydown', e => {
-        const key = e.key;
-        if (key === 'ArrowLeft' && direction !== 'RIGHT') nextDirection = 'LEFT';
-        else if (key === 'ArrowUp' && direction !== 'DOWN') nextDirection = 'UP';
-        else if (key === 'ArrowRight' && direction !== 'LEFT') nextDirection = 'RIGHT';
-        else if (key === 'ArrowDown' && direction !== 'UP') nextDirection = 'DOWN';
-      });
-
-      // Handle swipe for mobile
-      let touchStartX = null;
-      let touchStartY = null;
-
-      canvas.addEventListener('touchstart', e => {
-        const touch = e.changedTouches[0];
-        touchStartX = touch.pageX;
-        touchStartY = touch.pageY;
-      }, { passive: true });
-
-      canvas.addEventListener('touchmove', e => {
-        if (!touchStartX || !touchStartY) return;
-
-        const touch = e.changedTouches[0];
-        const diffX = touch.pageX - touchStartX;
-        const diffY = touch.pageY - touchStartY;
-
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-          // Horizontal swipe
-          if (diffX > 30 && direction !== 'LEFT') nextDirection = 'RIGHT';
-          else if (diffX < -30 && direction !== 'RIGHT') nextDirection = 'LEFT';
-        } else {
-          // Vertical swipe
-          if (diffY > 30 && direction !== 'UP') nextDirection = 'DOWN';
-          else if (diffY < -30 && direction !== 'DOWN') nextDirection = 'UP';
-        }
-
-        touchStartX = null;
-        touchStartY = null;
-      }, { passive: true });
-
-      // Initialize game
-      initSnake();
-      placeFood();
-      draw();
-      gameInterval = setInterval(update, 120);
-    })();
   </script>
 </body>
 </html>
