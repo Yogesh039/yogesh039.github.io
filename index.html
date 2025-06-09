@@ -3,216 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yogesh's Profile</title>
+  <title>Yogesh | ETL Engineer Profile</title>
   <style>
-    @font-face {
-      font-family: 'StarWars';
-      src: url('https://fonts.cdnfonts.com/s/15019/Starjedi.ttf') format('truetype');
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Courier New', Courier, monospace;
-      background: radial-gradient(circle, #000 70%, #1a1a1a);
-      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
       overflow-x: hidden;
     }
 
-    .starfield {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-      z-index: -1;
-      filter: brightness(0.7);
-      animation: moveStars 60s linear infinite;
+    .section {
+      padding: 60px 20px;
+      margin: 40px auto;
+      max-width: 1000px;
+      border-left: 5px solid #ff6347;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 20px #222;
+      position: relative;
     }
 
-    @keyframes moveStars {
-      0% { background-position: 0 0; }
-      100% { background-position: 100% 100%; }
-    }
-
-    .baby-yoda {
-      position: absolute;
-      width: 100px;
-      height: auto;
-      z-index: 1;
-      animation: climb 30s linear infinite;
-      filter: drop-shadow(0 0 15px rgba(255, 255, 0, 1));
-    }
-
-    @keyframes climb {
-      0% { left: 0%; top: 100%; }
-      25% { left: 25%; top: 75%; }
-      50% { left: 50%; top: 50%; }
-      75% { left: 75%; top: 25%; }
-      100% { left: 100%; top: 0%; }
-    }
-
-    header {
-      text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(180deg, #111 70%, transparent);
-      border-bottom: 2px solid #ff6347;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      font-family: 'StarWars', sans-serif;
-      text-shadow: 0 0 20px #ff6347, 0 0 30px #f5b500;
-    }
-
-    header p {
-      font-size: 1.5rem;
-      color: #f5b500;
+    .section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ff6347;
       text-shadow: 0 0 10px #ff6347;
     }
 
-    section {
-      position: relative;
-      padding: 50px 20px;
-      margin: 50px auto;
-      width: 90%;
-      max-width: 800px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      box-shadow: 0 0 20px #ff6347;
-      opacity: 0;
-      animation: crawlUp 3s ease-out forwards;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 30px #ff6347;
-    }
-
-    @keyframes crawlUp {
-      0% { transform: translateY(50px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    section h2 {
-      font-size: 2.5rem;
-      font-family: 'StarWars', sans-serif;
-      text-shadow: 0 0 15px #ff6347;
-      color: #fff;
-    }
-
-    section p {
+    .section p, .section ul {
       font-size: 1.2rem;
-      line-height: 1.6;
-      color: #f5b500;
+      line-height: 1.8;
+      color: #f0f0f0;
     }
 
-    footer {
+    ul.skills {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul.skills li {
+      margin: 8px 0;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    ul.skills li.sql { color: #00ffff; }
+    ul.skills li.python { color: #f5b500; }
+    ul.skills li.pyspark { color: #ff66cc; }
+    ul.skills li.databricks { color: #ff8800; }
+    ul.skills li.tableau { color: #66ff66; }
+
+    .etl-graphic {
+      width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border: 2px solid #ff6347;
+      border-radius: 10px;
+    }
+
+    .header {
       text-align: center;
-      padding: 20px;
-      background: linear-gradient(180deg, transparent, #111 70%);
+      padding: 60px 20px 20px;
+      background: linear-gradient(to right, #111, #333);
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .header p {
+      font-size: 1.3rem;
+      color: #ff6347;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      background: #111;
+      color: #888;
       border-top: 2px solid #ff6347;
     }
 
-    footer p, footer a {
-      color: #ff6347;
-      font-size: 1.2rem;
-    }
-
-    footer a {
+    .footer a {
+      color: #f5b500;
       text-decoration: none;
-      font-weight: bold;
+      margin: 0 10px;
     }
 
-    footer a:hover {
-      text-shadow: 0 0 10px #f5b500;
-      color: #f5b500;
-    }
-
-    .rocky-gif {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 150px;
-      height: auto;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 0, 1));
-    }
-
-    .clone-wars-gif {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 120px;
-      height: auto;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 0, 1));
-    }
-
-    a {
-      color: #f5b500;
+    .footer a:hover {
+      color: #00ffff;
     }
   </style>
 </head>
 <body>
-  <div class="starfield"></div>
-
-  <img class="baby-yoda" src="https://media.tenor.com/9k7CtFaopkcAAAAi/grogu-baby-yoda.gif" alt="Baby Yoda" />
-
-  <header>
+  <div class="header">
     <h1>Yogesh Srinivas</h1>
-    <p>Data Engineer</p>
-  </header>
+    <p>Data Engineer | ETL Architect | Bangalore</p>
+  </div>
 
-  <section>
-    <h2>About Me</h2>
-    <p>Hello! I'm Yogesh, a passionate Data Engineer based in Bangalore. With 3+ years of experience, I specialize in building efficient ETL pipelines, data analysis, and ensuring data quality. I have expertise in technologies like SQL, Python, PySpark, and Databricks. Outside of work, I'm a fitness enthusiast who enjoys biking and hiking.</p>
+  <!-- Extract Phase -->
+  <section class="section">
+    <h2>Extract</h2>
+    <p>I gather data from diverse sources—APIs, databases, flat files, and logs—ensuring integrity and freshness. My extraction layer includes:</p>
+    <ul class="skills">
+      <li class="sql">SQL — for structured data querying</li>
+      <li class="python">Python — for scripting automated extractors</li>
+      <li class="databricks">Databricks Notebooks — orchestrated extract jobs</li>
+    </ul>
+    <img class="etl-graphic" src="https://miro.medium.com/v2/resize:fit:1000/format:webp/1*xHjqgl2sRyzGbA7CoCjAyg.png" alt="Extract Phase Graphic">
   </section>
 
-  <section>
-    <h2>Skills</h2>
-    <p>
-      <span style="color:#00ffff; text-shadow:0 0 10px #00ffff;">⚡ Python</span>,
-      <span style="color:#00ffff; text-shadow:0 0 10px #00ffff;">SQL</span>,
-      <span style="color:#00ffff; text-shadow:0 0 10px #00ffff;">PySpark</span>,
-      <span style="color:#00ffff; text-shadow:0 0 10px #00ffff;">Databricks</span><br>
-      <span style="color:#ffff00; text-shadow:0 0 10px #ffff00;">⚡ ETL Pipelines</span>,
-      <span style="color:#ffff00; text-shadow:0 0 10px #ffff00;">Data Quality</span>,
-      <span style="color:#ffff00; text-shadow:0 0 10px #ffff00;">Automation</span><br>
-      <span style="color:#ff66cc; text-shadow:0 0 10px #ff66cc;">⚡ AWS</span>,
-      <span style="color:#ff66cc; text-shadow:0 0 10px #ff66cc;">Git</span>,
-      <span style="color:#ff66cc; text-shadow:0 0 10px #ff66cc;">Linux</span>
-    </p>
+  <!-- Transform Phase -->
+  <section class="section">
+    <h2>Transform</h2>
+    <p>I clean, enrich, and shape data into high-quality assets for analytics and downstream systems.</p>
+    <ul class="skills">
+      <li class="pyspark">PySpark — scalable data transformation</li>
+      <li class="python">Python Pandas — quick and detailed data wrangling</li>
+      <li class="sql">SQL Window Functions — data aggregations & joins</li>
+    </ul>
+    <img class="etl-graphic" src="https://www.integrate.io/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdsji0ob9%2Fproduction%2F527ec1851307e14b4c34dbd1dc2342068d0f8653-1200x630.png&w=1200&q=75" alt="Transform Phase Graphic">
   </section>
 
-  <section>
-    <h2>ETL Visuals</h2>
-    <p>A glimpse into the world of data pipelines:</p>
-    <div style="text-align:center; margin-top:20px;">
-      <svg width="90%" height="120px" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="60" width="180" height="80" rx="15" fill="#00ffff" stroke="#fff" stroke-width="2"/>
-        <text x="100" y="110" fill="#000" font-size="20" font-family="Courier New" text-anchor="middle">Extract</text>
-        <polygon points="190,100 220,85 220,115" fill="#ff6347"/>
-        <rect x="230" y="60" width="180" height="80" rx="15" fill="#f5b500" stroke="#fff" stroke-width="2"/>
-        <text x="320" y="110" fill="#000" font-size="20" font-family="Courier New" text-anchor="middle">Transform</text>
-        <polygon points="410,100 440,85 440,115" fill="#ff6347"/>
-        <rect x="450" y="60" width="180" height="80" rx="15" fill="#ff66cc" stroke="#fff" stroke-width="2"/>
-        <text x="540" y="110" fill="#000" font-size="20" font-family="Courier New" text-anchor="middle">Load</text>
-        <ellipse cx="700" cy="100" rx="50" ry="30" fill="#fff" stroke="#ff6347" stroke-width="3"/>
-        <line x1="650" y1="100" x2="750" y2="100" stroke="#ff6347" stroke-width="2"/>
-        <line x1="650" y1="115" x2="750" y2="115" stroke="#ff6347" stroke-width="2"/>
-        <line x1="650" y1="130" x2="750" y2="130" stroke="#ff6347" stroke-width="2"/>
-      </svg>
-    </div>
+  <!-- Load Phase -->
+  <section class="section">
+    <h2>Load</h2>
+    <p>Processed datasets are loaded into warehouses or analytics tools for consumption and visualization.</p>
+    <ul class="skills">
+      <li class="databricks">Databricks Delta Lake — optimized data storage</li>
+      <li class="tableau">Tableau Prep & Dashboards — storytelling with data</li>
+      <li class="sql">Snowflake / BigQuery — warehouse loading and querying</li>
+    </ul>
+    <img class="etl-graphic" src="https://hevodata.com/learn/wp-content/uploads/2021/11/image-79.png" alt="Load Phase Graphic">
   </section>
 
-  <section>
+  <!-- Contact -->
+  <section class="section">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:yogeshsrin@gmail.com">yogeshsrin@gmail.com</a></p>
     <p>Phone: +91-9743579039</p>
   </section>
 
-  <footer>
-    <p>Designed by Yogesh &copy; 2024</p>
-    <p><a href="https://github.com/Yogesh039">GitHub</a> | <a href="https://www.linkedin.com/in/yogesh-s-315a28166">LinkedIn</a></p>
-  </footer>
+  <div class="footer">
+    <p>© 2025 Yogesh Srinivas | Built with ❤️ and ETL logic</p>
+    <p>
+      <a href="https://github.com/Yogesh039">GitHub</a> |
+      <a href="https://www.linkedin.com/in/yogesh-s-315a28166">LinkedIn</a>
+    </p>
+  </div>
 </body>
 </html>
