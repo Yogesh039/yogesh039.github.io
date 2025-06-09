@@ -3,289 +3,209 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yogesh Srinivas | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>Yogesh Srinivas | Data Engineer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #fff;
-      --fg: #222;
-      --accent: #007bff;
-      --accent-light: #3399ff;
-      --section-bg: #f5f7fa;
-      --hex-bg: #fff;
-      --hex-shadow: rgba(0,0,0,0.08);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-      scroll-behavior: smooth;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: url('https://www.transparenttextures.com/patterns/cubes.png');
+      background-color: #f4f7fa;
+      color: #333;
     }
-    nav {
-      position: fixed;
-      width: 100%; top: 0; left: 0;
-      background: rgba(255,255,255,0.95);
-      padding: 16px 40px; display: flex;
-      justify-content: flex-end;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      z-index: 1000;
+
+    header {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
     }
-    nav a {
-      color: var(--fg); margin-left: 30px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color .3s;
+
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
     }
-    nav a:hover { color: var(--accent); }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
     section {
-      padding: 100px 40px;
-      background: var(--section-bg);
-      position: relative;
-    }
-    section + section::before {
-      content: "";
-      position: absolute;
-      top: -40px;
-      left: 0;
-      width: 100%;
-      height: 40px;
-      background: var(--bg);
-      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
 
-    #home {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      background: url('https://images.unsplash.com/photo-1557682260-96773eb01377?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      color: #fff;
-      text-align: center;
-    }
-    #home::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-    }
-    #home div {
-      position: relative;
-      z-index: 1;
-    }
-    #home h1 {
-      font-size: 3rem;
-      background: linear-gradient(90deg, #007bff, #66ccff);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-    #home p {
-      font-size: 1.2rem;
-      margin-top: 20px;
-      max-width: 700px;
-      color: rgba(255,255,255,0.9);
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: var(--accent);
+    section h2 {
+      font-size: 1.8rem;
+      color: #2575fc;
       margin-bottom: 20px;
-      text-align: center;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
     }
 
-    .hex-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
-      gap: 20px;
-      justify-items: center;
-    }
-    .hex {
-      width: 100px;
-      aspect-ratio: 1;
-      background: var(--hex-bg);
-      clip-path: polygon(
-        25% 0%, 75% 0%, 100% 50%,
-        75% 100%, 25% 100%, 0% 50%
-      );
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 2px 8px var(--hex-shadow);
-      transition: transform .3s;
-    }
-    .hex:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 16px var(--hex-shadow);
-    }
-    .hex span {
-      text-align: center;
-      font-weight: 500;
-      color: var(--fg);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
-      gap: 24px;
-    }
-    .project-card {
-      background: #fff;
+    .skills span {
+      display: inline-block;
+      background-color: #e6f0ff;
+      color: #2575fc;
+      font-weight: bold;
+      padding: 8px 12px;
+      margin: 6px;
       border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      padding: 24px;
-      transition: transform .3s, box-shadow .3s;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
-    }
-    .project-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-      color: var(--accent);
-    }
-    .project-card p {
-      font-size: .95rem;
-      color: #555;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+    .projects ul {
+      padding-left: 20px;
     }
-    .contact-info p {
+
+    .projects li {
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .contact a {
       display: flex;
       align-items: center;
-      margin-bottom: 16px;
-      color: var(--fg);
+      gap: 10px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      background: #f2f2f2;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
     }
-    .contact-info i {
-      font-size: 1.2rem;
-      color: var(--accent);
-      margin-right: 10px;
+
+    .contact a:hover {
+      background: #e0e7ff;
     }
-    form {
-      display: grid;
-      gap: 16px;
+
+    .contact img {
+      width: 20px;
+      height: 20px;
     }
-    input, textarea {
+
+    .message-form {
+      margin-top: 20px;
+    }
+
+    .message-form textarea {
       width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background: #fff;
-      color: #222;
-    }
-    button {
-      padding: 12px 25px;
-      border: none;
-      border-radius: 5px;
-      background: var(--accent);
-      color: #fff;
+      height: 100px;
+      padding: 10px;
       font-size: 1rem;
-      cursor: pointer;
-      transition: background .3s;
+      border-radius: 10px;
+      border: 1px solid #ccc;
     }
-    button:hover { background: var(--accent-light); }
+
+    .message-form button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .message-form button:hover {
+      background-color: #1a5dcb;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
-      font-size: .9rem;
+      font-size: 0.9rem;
       color: #777;
-    }
-
-    @media(max-width:768px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <header>
+    <h1>Yogesh Srinivas</h1>
+    <p>Data Engineer | Bangalore, India</p>
+  </header>
 
-<section id="home">
-  <div>
-    <h1>Hi, I'm Yogesh Srinivas</h1>
-    <p>Data Engineer & Fitness Enthusiast from Bangalore. I build scalable data pipelines and love solving real-world problems through clean, modern design.</p>
+  <div class="container">
+
+    <section>
+      <h2>About Me</h2>
+      <p>I’m Yogesh, a passionate data engineer with over 3.5 years of experience building scalable ETL pipelines and transforming data into actionable insights. Skilled in working with SQL, Python, PySpark, Tableau Prep, and Databricks, I love automating data workflows and optimizing systems.</p>
+    </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <span style="background-color:#e0f7fa; color:#00796b;">Python</span>
+      <span style="background-color:#fce4ec; color:#c2185b;">SQL</span>
+      <span style="background-color:#f3e5f5; color:#6a1b9a;">PySpark</span>
+      <span style="background-color:#e8f5e9; color:#2e7d32;">Databricks</span>
+      <span style="background-color:#fff3e0; color:#ef6c00;">Tableau Prep</span>
+      <span style="background-color:#ede7f6; color:#512da8;">ETL Pipelines</span>
+      <span style="background-color:#e1f5fe; color:#0277bd;">Automation</span>
+    </section>
+
+    <section class="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Telecom ETL:</strong> Processed large-scale customer usage data for a major telecom provider.</li>
+        <li><strong>Orders & Sales ETL:</strong> Built pipelines to analyze e-commerce sales trends in real-time.</li>
+        <li><strong>Web Scraping ETL:</strong> Automated product and pricing data extraction from multiple websites.</li>
+        <li><strong>Tableau Prep to Databricks Migration:</strong> Migrated workflows for better scalability and speed.</li>
+        <li><strong>Healthcare ETL:</strong> Created data pipelines for patient record analytics across clinics.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact Me</h2>
+      <div class="contact">
+        <a href="mailto:yogeshsrin@gmail.com">
+          <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email" />
+          yogeshsrin@gmail.com
+        </a>
+        <a href="tel:+919743579039">
+          <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone" />
+          +91-9743579039
+        </a>
+        <a href="https://github.com/Yogesh039" target="_blank">
+          <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub" />
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/yogesh-s-315a28166" target="_blank">
+          <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn" />
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="message-form">
+        <form action="mailto:yogeshsrin@gmail.com" method="post" enctype="text/plain">
+          <textarea name="message" placeholder="Write a message..."></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
   </div>
-</section>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p style="max-width:800px; margin:0 auto; text-align:center;">
-    With 3.5+ years of experience in data engineering, I specialize in ETL, cloud systems, and real-time analytics. I enjoy building thoughtfully designed solutions that combine tech with functionality.
-  </p>
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="hex-grid">
-    <div class="hex"><span>Python</span></div>
-    <div class="hex"><span>SQL</span></div>
-    <div class="hex"><span>PySpark</span></div>
-    <div class="hex"><span>Databricks</span></div>
-    <div class="hex"><span>AWS</span></div>
-    <div class="hex"><span>Airflow</span></div>
-    <div class="hex"><span>Git & Linux</span></div>
-    <div class="hex"><span>Tableau</span></div>
-  </div>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <h3>Telecom ETL</h3>
-      <p>Processed and enriched CDR & usage data using PySpark and Airflow, enabling real-time analytics.</p>
-    </div>
-    <div class="project-card">
-      <h3>Orders & Sales ETL</h3>
-      <p>Built order processing pipelines for sales trend analysis across multiple markets.</p>
-    </div>
-    <div class="project-card">
-      <h3>Web Scraping ETL</h3>
-      <p>Automated data extraction and ingestion from public portals and APIs for market insights.</p>
-    </div>
-    <div class="project-card">
-      <h3>Tableau Prep → Databricks</h3>
-      <p>Migrated legacy Tableau Prep flows into optimized Databricks workflows.</p>
-    </div>
-    <div class="project-card">
-      <h3>Healthcare ETL</h3>
-      <p>Built pipelines to manage patient health records and appointments for a major hospital chain.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact Me</h2>
-  <div class="contact-grid">
-    <div class="contact-info">
-      <p><i class="fas fa-envelope"></i><a href="mailto:yogeshsrin@gmail.com">yogeshsrin@gmail.com</a></p>
-      <p><i class="fas fa-phone"></i>+91‑9743579039</p>
-      <p><i class="fab fa-github"></i><a href="https://github.com/Yogesh039" target="_blank">github.com/Yogesh039</a></p>
-      <p><i class="fab fa-linkedin"></i><a href="https://linkedin.com/in/yogesh-s-315a28166" target="_blank">LinkedIn Profile</a></p>
-    </div>
-    <form action="mailto:yogeshsrin@gmail.com" method="POST" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-</section>
-
-<footer>
-  &copy; 2025 Yogesh Srinivas — Designed with style & precision
-</footer>
+  <footer>
+    &copy; 2025 Yogesh Srinivas | Built with ❤️ and HTML/CSS
+  </footer>
 
 </body>
 </html>
