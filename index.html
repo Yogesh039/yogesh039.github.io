@@ -1,183 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yogesh's ETL Profile</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yogesh Srinivas | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #121212;
+    --fg: #e0e0e0;
+    --accent: #ff6f61;
+    --accent-light: #ff9e94;
+    --section-bg: #1e1e1e;
+  }
 
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
 
-    header {
-      background: linear-gradient(90deg, #283048, #859398);
-      padding: 40px 20px;
-      text-align: center;
-      color: white;
-    }
+  nav {
+    position: fixed; width: 100%; top: 0; left: 0;
+    background: rgba(18,25,28,0.9);
+    padding: 20px 40px; display: flex; justify-content: flex-end;
+    z-index: 1000;
+  }
+  nav a {
+    color: var(--fg); margin-left: 30px; font-weight: 500;
+    text-decoration: none; transition: color .3s;
+  }
+  nav a:hover { color: var(--accent-light); }
 
-    header h1 {
-      font-size: 3rem;
-    }
+  section { padding: 100px 40px; }
+  #home {
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; text-align: center;
+  }
+  #home h1 {
+    font-size: 3rem; font-weight: 700;
+    background: linear-gradient(90deg, #ff6f61, #ff9e94);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  #home p { font-size: 1.2rem; margin-top: 20px; max-width: 700px; }
 
-    header p {
-      font-size: 1.3rem;
-      opacity: 0.9;
-    }
+  #about, #skills, #projects, #contact {
+    background: var(--section-bg);
+    border-radius: 8px;
+    margin-bottom: 60px;
+  }
 
-    .section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-      margin-bottom: 40px;
-      background: #1b1b1b;
-      border-left: 5px solid #ff6347;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(255, 99, 71, 0.3);
-    }
+  h2 {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+  }
 
-    .section h2 {
-      margin-bottom: 20px;
-      color: #ff6347;
-      font-size: 2rem;
-    }
+  .grid {
+    display: grid;
+    gap: 20px;
+  }
+  .skills-list, .projects-list {
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+  }
+  .skill-card, .project-card {
+    background: #2a2a2a; padding: 20px;
+    border-radius: 8px; transition: transform .3s;
+  }
+  .skill-card:hover, .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
 
-    .section p, .section ul {
-      color: #ddd;
-      font-size: 1.1rem;
-    }
+  .skill-card { text-align: center; font-weight: 500; }
+  .project-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+  .project-card p { font-size: .95rem; color: #ccc; }
 
-    .skills span {
-      display: inline-block;
-      background: #333;
-      color: #fff;
-      padding: 8px 12px;
-      margin: 6px;
-      border-radius: 5px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
+  .contact-form, .contact-info {
+    width: 100%;
+  }
+  .contact-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+  input, textarea {
+    width: 100%; padding: 12px;
+    border: none; border-radius: 5px;
+    margin-bottom: 15px;
+    background: #333; color: #fff;
+  }
+  button {
+    padding: 12px 25px;
+    border: none; border-radius: 5px;
+    background: var(--accent); color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background .3s;
+  }
+  button:hover { background: var(--accent-light); }
 
-    .skills span:nth-child(3n) { background: #0077b6; }
-    .skills span:nth-child(3n+1) { background: #f77f00; }
-    .skills span:nth-child(3n+2) { background: #90be6d; }
+  footer {
+    text-align: center; padding: 30px;
+    font-size: .9rem; color: #777;
+  }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #121212;
-      color: #aaa;
-      font-size: 1rem;
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav { justify-content: center; }
+    .contact-grid {
+      grid-template-columns: 1fr;
     }
-
-    footer a {
-      color: #ff6347;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer a:hover {
-      color: #ffd166;
-    }
-
-    .etl-graphic {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 30px;
-      gap: 20px;
-    }
-
-    .etl-box {
-      background: #262626;
-      padding: 20px;
-      width: 250px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(255, 99, 71, 0.2);
-    }
-
-    .etl-box h3 {
-      color: #ffd166;
-      margin-bottom: 10px;
-    }
-
-    .etl-box p {
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Yogesh Srinivas</h1>
-    <p>Data Engineer | ETL Specialist | Fitness Enthusiast</p>
-  </header>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section class="section">
-    <h2>Extract - Who I Am</h2>
-    <p>
-      Hello! I'm Yogesh, a Data Engineer based in Bangalore. I have 3.5+ years of experience building robust, scalable ETL pipelines that drive data insights. I’m passionate about problem-solving, optimizing data workflows, and staying fit both mentally and physically. In my free time, I enjoy working out, hiking, and experimenting with tech.
-    </p>
-  </section>
+<section id="home">
+  <div>
+    <h1>Hi, I'm Yogesh Srinivas</h1>
+    <p>Data Engineer & Fitness Enthusiast based in Bangalore. I build scalable data pipelines and love applying tech to solve real-world problems.</p>
+  </div>
+</section>
 
-  <section class="section">
-    <h2>Transform - My Skills</h2>
-    <div class="skills">
-      <span>SQL</span>
-      <span>Python</span>
-      <span>PySpark</span>
-      <span>Databricks</span>
-      <span>Tableau Prep</span>
-      <span>AWS</span>
-      <span>Airflow</span>
-      <span>Git</span>
-      <span>Data Modeling</span>
-      <span>ETL Optimization</span>
+<section id="about">
+  <h2>About Me</h2>
+  <p>I have over 3.5 years of experience building ETL pipelines, transforming data, and crafting analytics solutions. Outside work, I’m into gym workouts, trekking, and continuous learning—currently exploring AI integration in fitness tech.</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="grid skills-list">
+    <div class="skill-card">SQL</div>
+    <div class="skill-card">Python</div>
+    <div class="skill-card">PySpark</div>
+    <div class="skill-card">Databricks</div>
+    <div class="skill-card">Tableau</div>
+    <div class="skill-card">AWS</div>
+    <div class="skill-card">Airflow</div>
+    <div class="skill-card">Git & Linux</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid projects-list">
+    <div class="project-card">
+      <h3>ETL Pipeline for Retail Ops</h3>
+      <p>Automated ETL pipeline processing daily sales and inventory data into a Delta Lake, enabling analytics dashboards.</p>
     </div>
-  </section>
-
-  <section class="section">
-    <h2>Load - Let’s Connect</h2>
-    <p>Email: <a href="mailto:yogeshsrin@gmail.com">yogeshsrin@gmail.com</a></p>
-    <p>Phone: +91-9743579039</p>
-    <p>
-      GitHub: <a href="https://github.com/Yogesh039" target="_blank">Yogesh039</a><br>
-      LinkedIn: <a href="https://www.linkedin.com/in/yogesh-s-315a28166" target="_blank">Yogesh's Profile</a>
-    </p>
-
-    <div class="etl-graphic">
-      <div class="etl-box">
-        <h3>Extract</h3>
-        <p>Collecting raw data from multiple sources and understanding the foundation.</p>
-      </div>
-      <div class="etl-box">
-        <h3>Transform</h3>
-        <p>Cleaning, enriching, and reshaping data — just like I enhance my skills and projects.</p>
-      </div>
-      <div class="etl-box">
-        <h3>Load</h3>
-        <p>Deploying insights into production — or delivering value to teams and users.</p>
-      </div>
+    <div class="project-card">
+      <h3>Fitness Tracker App</h3>
+      <p>A personal fitness recommendation tool built with React and Flask, integrating with device data.</p>
     </div>
-  </section>
+    <div class="project-card">
+      <h3>Data Quality Dashboard</h3>
+      <p>Interactive Tableau dashboard showing data completeness, freshness, and anomalies for internal datasets.</p>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Yogesh Srinivas. Built with 💡 and ☕</p>
-  </footer>
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:yogeshsrin@gmail.com">yogeshsrin@gmail.com</a></p>
+      <p><strong>Phone:</strong> +91‑9743579039</p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Yogesh039" target="_blank">Yogesh039</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yogesh-s-315a28166" target="_blank">Yogesh Srinivas</a></p>
+    </div>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Yogesh Srinivas — Built with Passion & Tech
+</footer>
 
 </body>
 </html>
