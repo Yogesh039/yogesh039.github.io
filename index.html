@@ -5,31 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yogesh Srinivas | Data Engineer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #f4f7fa, #e8ecf3);
+      background: url('https://www.transparenttextures.com/patterns/cubes.png');
+      background-color: #f4f7fa;
       color: #333;
     }
 
     header {
-      background: linear-gradient(120deg, #6a11cb, #2575fc);
+      background: linear-gradient(to right, #6a11cb, #2575fc);
       color: white;
-      padding: 60px 20px;
+      padding: 40px 20px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
 
     header h1 {
       margin: 0;
-      font-size: 3rem;
+      font-size: 2.8rem;
     }
 
     header p {
@@ -44,21 +38,15 @@
     }
 
     section {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(6px);
+      background: white;
       padding: 30px;
-      border-radius: 20px;
-      margin-bottom: 40px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-5px);
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
 
     section h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: #2575fc;
       margin-bottom: 20px;
       border-bottom: 2px solid #eee;
@@ -67,15 +55,12 @@
 
     .skills span {
       display: inline-block;
-      padding: 10px 15px;
+      background-color: #e6f0ff;
+      color: #2575fc;
+      font-weight: bold;
+      padding: 8px 12px;
       margin: 6px;
-      font-weight: 600;
-      border-radius: 12px;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .skills span:hover {
-      transform: scale(1.1);
+      border-radius: 8px;
     }
 
     .projects ul {
@@ -83,15 +68,14 @@
     }
 
     .projects li {
-      margin-bottom: 12px;
-      line-height: 1.6;
+      margin-bottom: 10px;
     }
 
     .contact {
       display: flex;
-      flex-wrap: wrap;
       gap: 20px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .contact a {
@@ -101,47 +85,43 @@
       color: #333;
       text-decoration: none;
       font-weight: 600;
-      background: #f5f7fa;
+      background: #f2f2f2;
       padding: 10px 15px;
-      border-radius: 12px;
-      transition: all 0.3s ease;
+      border-radius: 8px;
+      transition: background 0.3s ease;
     }
 
     .contact a:hover {
       background: #e0e7ff;
-      transform: translateY(-2px);
     }
 
     .contact img {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
     }
 
     .message-form {
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     .message-form textarea {
       width: 100%;
-      height: 120px;
-      padding: 12px;
+      height: 100px;
+      padding: 10px;
       font-size: 1rem;
-      border-radius: 12px;
+      border-radius: 10px;
       border: 1px solid #ccc;
-      resize: vertical;
     }
 
     .message-form button {
       margin-top: 10px;
-      padding: 12px 24px;
+      padding: 10px 20px;
       background-color: #2575fc;
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       font-weight: bold;
-      font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
 
     .message-form button:hover {
@@ -154,23 +134,63 @@
       font-size: 0.9rem;
       color: #777;
     }
+
+    /* Maze Game Styles */
+    #maze-container {
+      max-width: 220px;
+      margin: 20px auto;
+      user-select: none;
+    }
+
+    #maze {
+      display: grid;
+      grid-template-columns: repeat(5, 40px);
+      grid-template-rows: repeat(5, 40px);
+      gap: 2px;
+    }
+
+    .cell {
+      width: 40px;
+      height: 40px;
+      background-color: #eee;
+      border-radius: 6px;
+    }
+
+    .wall {
+      background-color: #333;
+    }
+
+    .player {
+      background-color: #2196f3; /* Blue */
+    }
+
+    .goal {
+      background-color: #4caf50; /* Green */
+    }
+
+    #maze-result {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #2575fc;
+    }
   </style>
 </head>
 <body>
 
-  <header data-aos="fade-down">
+  <header>
     <h1>Yogesh Srinivas</h1>
     <p>Data Engineer | Bangalore, India</p>
   </header>
 
   <div class="container">
 
-    <section data-aos="fade-up">
+    <section>
       <h2>About Me</h2>
-      <p>I’m Yogesh, a passionate data engineer with over 3.5 years of experience building scalable ETL pipelines and transforming data into actionable insights. Skilled in SQL, Python, PySpark, Tableau Prep, and Databricks, I enjoy automating workflows and optimizing systems.</p>
+      <p>I’m Yogesh, a passionate data engineer with over 3.5 years of experience building scalable ETL pipelines and transforming data into actionable insights. Skilled in working with SQL, Python, PySpark, Tableau Prep, and Databricks, I love automating data workflows and optimizing systems.</p>
     </section>
 
-    <section class="skills" data-aos="zoom-in-up">
+    <section class="skills">
       <h2>Skills</h2>
       <span style="background-color:#e0f7fa; color:#00796b;">Python</span>
       <span style="background-color:#fce4ec; color:#c2185b;">SQL</span>
@@ -181,7 +201,7 @@
       <span style="background-color:#e1f5fe; color:#0277bd;">Automation</span>
     </section>
 
-    <section class="projects" data-aos="fade-right">
+    <section class="projects">
       <h2>Projects</h2>
       <ul>
         <li><strong>Telecom ETL:</strong> Processed large-scale customer usage data for a major telecom provider.</li>
@@ -192,11 +212,11 @@
       </ul>
     </section>
 
-    <section data-aos="fade-left">
+    <section>
       <h2>Contact Me</h2>
       <div class="contact">
         <a href="mailto:yogeshsrin@gmail.com">
-          <img src="https://static.vecteezy.com/system/resources/previews/022/484/516/non_2x/google-mail-gmail-icon-logo-symbol-free-png.png" alt="Email" />
+          <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email" />
           yogeshsrin@gmail.com
         </a>
         <a href="tel:+919743579039">
@@ -220,19 +240,84 @@
         </form>
       </div>
     </section>
+
+    <section>
+      <h2>🧩 Mini Maze Game</h2>
+      <p>Use arrow keys to move the blue box (🟦) to the green goal (🟩).</p>
+      <div id="maze-container">
+        <div id="maze"></div>
+        <p id="maze-result"></p>
+      </div>
+    </section>
+
   </div>
 
-  <footer data-aos="fade-up">
+  <footer>
     &copy; 2025 Yogesh Srinivas | Built with ❤️ and HTML/CSS
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      offset: 120,
-      once: true
+    const mazeLayout = [
+      ".....",
+      ".###.",
+      ".#...",
+      ".###.",
+      "...#G"
+    ];
+
+    const maze = document.getElementById("maze");
+    const result = document.getElementById("maze-result");
+
+    let playerPos = { row: 0, col: 0 };
+
+    function drawMaze() {
+      maze.innerHTML = '';
+      for (let row = 0; row < 5; row++) {
+        for (let col = 0; col < 5; col++) {
+          const cell = document.createElement("div");
+          cell.classList.add("cell");
+          if (mazeLayout[row][col] === "#") {
+            cell.classList.add("wall");
+          }
+          if (row === playerPos.row && col === playerPos.col) {
+            cell.classList.add("player");
+          } else if (mazeLayout[row][col] === "G") {
+            cell.classList.add("goal");
+          }
+          maze.appendChild(cell);
+        }
+      }
+    }
+
+    function movePlayer(key) {
+      let { row, col } = playerPos;
+      if (key === "ArrowUp") row--;
+      else if (key === "ArrowDown") row++;
+      else if (key === "ArrowLeft") col--;
+      else if (key === "ArrowRight") col++;
+
+      if (
+        row >= 0 && row < 5 &&
+        col >= 0 && col < 5 &&
+        mazeLayout[row][col] !== "#"
+      ) {
+        playerPos = { row, col };
+        drawMaze();
+        if (mazeLayout[row][col] === "G") {
+          result.innerText = "🎉 You reached the goal!";
+        }
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+        e.preventDefault();
+        movePlayer(e.key);
+      }
     });
+
+    drawMaze();
   </script>
+
 </body>
 </html>
