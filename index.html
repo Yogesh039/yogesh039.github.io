@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yogesh Srinivas | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     :root {
       --bg: #ffffff;
@@ -25,7 +26,7 @@
 
     nav {
       position: fixed; width: 100%; top: 0; left: 0;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.95);
       padding: 20px 40px; display: flex; justify-content: flex-end;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       z-index: 1000;
@@ -120,6 +121,16 @@
     }
     button:hover { background: var(--accent-light); }
 
+    .contact-info p {
+      margin: 10px 0;
+      display: flex; align-items: center;
+      gap: 10px;
+    }
+    .contact-info i {
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
     footer {
       text-align: center; padding: 30px;
       font-size: .9rem; color: #777;
@@ -175,16 +186,24 @@
   <h2>Projects</h2>
   <div class="grid projects-list">
     <div class="project-card">
-      <h3>Retail ETL Pipeline</h3>
-      <p>Built scalable data ingestion pipelines for retail clients using PySpark and Databricks. Reduced report latency by 60%.</p>
+      <h3>Telecom ETL</h3>
+      <p>Processed and enriched CDR & usage data using PySpark and Airflow, enabling real-time analytics.</p>
     </div>
     <div class="project-card">
-      <h3>Fitness Tracker Web App</h3>
-      <p>Created a React + Flask app recommending diet and workouts using AI models based on regional preferences and physical metrics.</p>
+      <h3>Orders & Sales ETL</h3>
+      <p>Built order processing pipelines for sales trend analysis across multiple markets.</p>
     </div>
     <div class="project-card">
-      <h3>Data Quality Dashboard</h3>
-      <p>Automated monitoring of data health using Airflow and visualized in Tableau for leadership insights.</p>
+      <h3>Web Scraping ETL</h3>
+      <p>Automated data extraction and ingestion from public portals and APIs for market insights.</p>
+    </div>
+    <div class="project-card">
+      <h3>Tableau Prep to Databricks Migration</h3>
+      <p>Migrated legacy Tableau Prep flows to Databricks notebooks, optimizing performance by 50%.</p>
+    </div>
+    <div class="project-card">
+      <h3>Healthcare ETL</h3>
+      <p>Built pipelines to manage patient health records and appointments for a major hospital chain.</p>
     </div>
   </div>
 </section>
@@ -192,17 +211,17 @@
 <section id="contact">
   <h2>Contact Me</h2>
   <div class="contact-grid">
-    <div>
-      <p><strong>Email:</strong> <a href="mailto:yogeshsrin@gmail.com">yogeshsrin@gmail.com</a></p>
-      <p><strong>Phone:</strong> +91‑9743579039</p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/Yogesh039" target="_blank">Yogesh039</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yogesh-s-315a28166" target="_blank">Yogesh Srinivas</a></p>
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> <a href="mailto:yogeshsrin@gmail.com">yogeshsrin@gmail.com</a></p>
+      <p><i class="fas fa-phone"></i> +91‑9743579039</p>
+      <p><i class="fab fa-github"></i> <a href="https://github.com/Yogesh039" target="_blank">github.com/Yogesh039</a></p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/yogesh-s-315a28166" target="_blank">LinkedIn Profile</a></p>
     </div>
     <div>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea rows="5" placeholder="Your Message" required></textarea>
+      <form action="mailto:yogeshsrin@gmail.com" method="POST" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
       </form>
     </div>
