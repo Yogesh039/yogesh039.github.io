@@ -37,28 +37,51 @@
     }
     nav a:hover { color: var(--accent); }
 
-    section { padding: 100px 40px; }
-    #home {
-      display: flex; justify-content: center; align-items: center;
-      min-height: 100vh; text-align: center;
-      background: var(--section-bg);
+    section {
+      padding: 100px 40px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-blend-mode: lighten;
     }
+
+    #home {
+      min-height: 100vh; text-align: center;
+      background-image: url('https://images.unsplash.com/photo-1557682260-96773eb01377?auto=format&fit=crop&w=1600&q=80');
+      background-color: rgba(255,255,255,0.8);
+      display: flex; justify-content: center; align-items: center;
+    }
+
     #home h1 {
       font-size: 3rem; font-weight: 700;
       background: linear-gradient(90deg, #007bff, #66ccff);
       -webkit-background-clip: text;
       color: transparent;
     }
+
     #home p {
       font-size: 1.2rem;
       margin-top: 20px; max-width: 700px;
-      color: #444;
+      color: #333;
     }
 
-    #about, #skills, #projects, #contact {
-      background: var(--section-bg);
-      border-radius: 8px;
-      margin-bottom: 60px;
+    #about {
+      background-color: #ffffff;
+    }
+
+    #skills {
+      background-image: url('https://images.unsplash.com/photo-1604079629976-f8a2fb9c631b?auto=format&fit=crop&w=1600&q=80');
+      background-color: rgba(255,255,255,0.85);
+    }
+
+    #projects {
+      background-image: url('https://images.unsplash.com/photo-1629904853716-f0bc54eea481?auto=format&fit=crop&w=1600&q=80');
+      background-color: rgba(255,255,255,0.85);
+    }
+
+    #contact {
+      background-image: url('https://images.unsplash.com/photo-1521790360280-692e8dcf5d0e?auto=format&fit=crop&w=1600&q=80');
+      background-color: rgba(255,255,255,0.85);
     }
 
     h2 {
@@ -146,14 +169,16 @@
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="#home">Home</a>
-  <a href="#about">About Me</a>
+  <a href="#about">About</a>
   <a href="#skills">Skills</a>
   <a href="#projects">Projects</a>
   <a href="#contact">Contact</a>
 </nav>
 
+<!-- HOME -->
 <section id="home">
   <div>
     <h1>Hi, I'm Yogesh Srinivas</h1>
@@ -161,6 +186,7 @@
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
   <p style="text-align:center; max-width: 800px; margin: auto;">
@@ -168,6 +194,7 @@
   </p>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
   <h2>Skills</h2>
   <div class="grid skills-list">
@@ -182,6 +209,7 @@
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
   <div class="grid projects-list">
@@ -208,6 +236,7 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <h2>Contact Me</h2>
   <div class="contact-grid">
@@ -228,6 +257,7 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   &copy; 2025 Yogesh Srinivas — Crafted with ❤️ and Code
 </footer>
