@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Star Wars Retro Page</title>
+  <title>Yogesh's Retro Star Wars Profile</title>
   <style>
     @font-face {
       font-family: 'StarWars';
@@ -14,18 +14,11 @@
       margin: 0;
       padding: 0;
       font-family: 'Courier New', Courier, monospace;
-      color: #fff;
-      background: linear-gradient(315deg, #0f0c29, #302b63, #24243e);
-      background-size: 600% 600%;
-      animation: retroBackground 15s ease infinite;
-      position: relative;
+      background-color: #121212;
+      background-image: linear-gradient(45deg, #222 25%, #000 25%, #000 50%, #222 50%, #222 75%, #000 75%, #000);
+      background-size: 40px 40px;
+      color: #00ffcc;
       overflow-x: hidden;
-    }
-
-    @keyframes retroBackground {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
     }
 
     .starfield {
@@ -39,122 +32,36 @@
     }
 
     @keyframes moveStars {
-      0% {background-position: 0 0;}
-      100% {background-position: 100% 100%;}
+      from { background-position: 0 0; }
+      to { background-position: 100% 100%; }
     }
 
-    /* Baby Yoda Climbing Steps */
     .baby-yoda {
       position: fixed;
       width: 100px;
-      height: auto;
-      z-index: 10;
-      animation: climbSteps 20s linear infinite;
+      z-index: 1;
+      animation: climbSteps 15s linear infinite;
       filter: drop-shadow(0 0 10px #00ffcc);
-      pointer-events: none;
     }
 
     @keyframes climbSteps {
-      0% { left: 0%; top: 90%; }
-      10% { left: 10%; top: 80%; }
-      20% { left: 20%; top: 70%; }
-      30% { left: 30%; top: 60%; }
-      40% { left: 40%; top: 50%; }
-      50% { left: 50%; top: 40%; }
-      60% { left: 60%; top: 30%; }
-      70% { left: 70%; top: 20%; }
-      80% { left: 80%; top: 10%; }
-      100% { left: 100%; top: 0%; }
+      0%   { left: 0%;   top: 90%; }
+      20%  { left: 20%;  top: 70%; }
+      40%  { left: 40%;  top: 50%; }
+      60%  { left: 60%;  top: 30%; }
+      80%  { left: 80%;  top: 10%; }
+      100% { left: 100%; top: -10%; }
     }
 
-    /* Retro Header */
-    header {
-      text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(180deg, #111 60%, transparent);
-      border-bottom: 2px solid #00f0ff;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      font-family: 'StarWars', sans-serif;
-      text-shadow: 0 0 20px #00f0ff, 0 0 30px #ff00ff;
-      color: #fff;
-    }
-
-    header p {
-      font-size: 1.5rem;
-      text-shadow: 0 0 10px #00f0ff;
-      color: #ff00ff;
-    }
-
-    section {
-      position: relative;
-      padding: 50px 20px;
-      margin: 50px auto;
-      width: 90%;
-      max-width: 800px;
-      background-color: rgba(255, 255, 255, 0.08);
-      border: 2px solid #00ffcc;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #00ffcc;
-      animation: crawlUp 3s ease-out forwards;
-      opacity: 0;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 25px #ff00ff;
-    }
-
-    @keyframes crawlUp {
-      0% {
-        transform: translateY(50px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    section h2 {
-      font-size: 2.5rem;
-      font-family: 'StarWars', sans-serif;
-      text-shadow: 0 0 10px #00f0ff;
-      color: #fff;
-    }
-
-    section p {
-      font-size: 1.2rem;
-      color: #00ffcc;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: linear-gradient(180deg, transparent, #111 70%);
-      border-top: 2px solid #00f0ff;
-    }
-
-    footer p, footer a {
-      color: #00f0ff;
-      font-size: 1.2rem;
-    }
-
-    footer a:hover {
-      text-shadow: 0 0 10px #ff00ff;
-      color: #ff00ff;
-    }
-
-    /* GIFs */
-    .rocky-gif, .clone-wars-gif {
-      position: absolute;
+    .clone-wars-gif, .rocky-gif {
+      position: fixed;
       width: 120px;
-      height: auto;
-      filter: drop-shadow(0 0 8px #ff00ff);
+      z-index: 2;
+    }
+
+    .clone-wars-gif {
+      top: 20px;
+      left: 20px;
     }
 
     .rocky-gif {
@@ -162,34 +69,113 @@
       right: 20px;
     }
 
-    .clone-wars-gif {
-      top: 20px;
-      left: 20px;
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to bottom, #000000dd, transparent);
+      font-family: 'StarWars', sans-serif;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #00ffcc;
+      text-shadow: 0 0 20px #00ffff, 0 0 10px #ff00ff;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      color: #ff00ff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    section {
+      margin: 50px auto;
+      padding: 30px 20px;
+      width: 90%;
+      max-width: 800px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 2px solid #00ffcc;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #ff00ff;
+      backdrop-filter: blur(5px);
+    }
+
+    section h2 {
+      font-family: 'StarWars', sans-serif;
+      font-size: 2rem;
+      color: #ff00ff;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    section p, a {
+      font-size: 1.1rem;
+      color: #00ffcc;
+      line-height: 1.6;
+      text-decoration: none;
+    }
+
+    section a:hover {
+      text-shadow: 0 0 10px #ff00ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(to top, #000000dd, transparent);
+      border-top: 2px solid #00ffcc;
+    }
+
+    footer p {
+      color: #00ffcc;
+    }
+
+    footer a {
+      color: #ff00ff;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-shadow: 0 0 10px #00ffff;
     }
   </style>
 </head>
 <body>
   <div class="starfield"></div>
 
-  <img src="https://media.giphy.com/media/12bVDtXRX1a3Ak/giphy.gif" alt="Baby Yoda" class="baby-yoda" />
+  <!-- Animated GIFs -->
+  <img class="baby-yoda" src="https://media.tenor.com/9k7CtFaopkcAAAAi/grogu-baby-yoda.gif" alt="Baby Yoda">
+  <img class="clone-wars-gif" src="https://media.tenor.com/ImDs2WkLTcUAAAAd/clonewars.gif" alt="Clone Wars">
+  <img class="rocky-gif" src="https://media.tenor.com/ebnGGFGojLkAAAAd/rocky-balboa-boxing.gif" alt="Rocky">
 
+  <!-- Header -->
   <header>
-    <h1>Welcome to the Star Wars Galaxy</h1>
-    <p>Explore the universe like never before.</p>
+    <h1>Yogesh Srinivas</h1>
+    <p>Data Engineer | Fitness Enthusiast</p>
   </header>
 
+  <!-- Sections -->
   <section>
-    <h2>The Force Awakens</h2>
-    <p>Feel the force surround you. The galaxy is vast and full of wonders. Embrace your journey as a Jedi or Sith, and let your destiny unfold among the stars.</p>
+    <h2>About Me</h2>
+    <p>Hey! I’m Yogesh, a Data Engineer from Bangalore with over 3.5 years of experience designing robust ETL pipelines and data workflows. I specialize in Python, SQL, PySpark, and Databricks — and I love solving tough data problems.</p>
+    <p>Off the clock, I enjoy gym workouts, trekking, and anything that boosts adrenaline. I'm also working on an AI-powered fitness recommendation app.</p>
   </section>
 
   <section>
-    <h2>Retro Tech Power</h2>
-    <p>This site combines Star Wars inspiration with 80s retro-futuristic design. Expect neon lights, synth vibes, pixel sparks, and cosmic energy!</p>
+    <h2>Skills</h2>
+    <p>⚡ SQL, Python, PySpark, Databricks, Tableau Prep<br>
+       ⚡ ETL Pipelines, Data Quality, Workflow Automation<br>
+       ⚡ AWS (basics), Git, Linux</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:yogeshsrin@gmail.com">yogeshsrin@gmail.com</a></p>
+    <p>Phone: +91-9743579039</p>
   </section>
 
   <footer>
-    <p>May the force be with you. Visit <a href="#">starwars.com</a> for more.</p>
+    <p>🛠️ Designed by Yogesh &copy; 2025</p>
+    <p><a href="https://github.com/Yogesh039" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/yogesh-s-315a28166" target="_blank">LinkedIn</a></p>
   </footer>
 </body>
 </html>
