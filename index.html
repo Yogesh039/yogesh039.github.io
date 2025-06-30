@@ -9,10 +9,10 @@
     :root {
       --bg-light: linear-gradient(to bottom, #87ceeb, #b6e5f3);
       --bg-dark: #0a0f1b;
-      --header-light: #ffff00;
-      --header-dark: #ffcc00;
       --text-light: #ffffff;
       --text-dark: #f0f0f0;
+      --header-light: #ffff00;
+      --header-dark: #ffcc00;
     }
 
     body {
@@ -21,6 +21,7 @@
       background: var(--bg-light);
       color: var(--text-light);
       transition: background 0.5s, color 0.5s;
+      overflow-x: hidden;
     }
 
     body.dark {
@@ -29,9 +30,9 @@
     }
 
     header {
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAqCAYAAABOrUJ9AAAACXBIWXMAABYlAAAWJQFJUiTwAAAExUlEQVR4nO2Zz2tcVRjHf+e9rTdxKUQlqZDmFiCKhEtAy6OYFBJSNGEgx8RJQi5CAw8iI0yW9GRZiEkk3EA0RlAQkWY8QIIeWixok1ExPUEEx0RLsRZq9X9fYZ5dn93bnfnvc851v6fH91zvnzvnzP2e5zrnP+UY3zvRM8PCtq1N7RnQKgB2AmcB3oCOAHPgT8BWdga2GHEgXwFXAWkZGbAAnS1J6+rdbvUJk/H/h9jLk2oMi57XQmtQHXgNO7y1Joz13MiB2xBPbBNWG8HYCGkG7qSlAPcBNcAycBjZyTtADsBH4JuO8DMFtYkPtANsB+xNEcL7tAd+A3eAHuYjO7sMCvSYvL0A3geODfDfAlMF7wnSUHR30AuB3cArXAAeCa28LssF3QXTssNcgLfA9oF+TwADfgYYH0Go2bAU7LU+pjwFfjo9+YAs4DMqLbgFeAH7BM1PY18Dd4AtUG3M1EQ+ENkph9v8BQb26uxbgJPBq8HHgrj8YOtDdqbyo9Y/YB7YKzpGe5sX1xM8HvcVTV2gB+9FHQscMDrVPXX2kPlYYx2sD1mGp63gFGH8N8KY8Gp4LvAI2ivddX8Ub93VcMFUYemzn1tDwWfx3/N0kDZ0ByawETvXfXNcPHhJdiYZV4bO8CrhALazfaOguc16eBfQGVgXtKvlz0tw0EnLxhSp8Fy4Uvnk95pDYFQ3BWa99ZyRXbV5eTn+Wtx5b1RPxNsK75T2gFTzHZHZ6ieFurWn+mvUEXavUVy9qitVNStqGlSlVLXYOGEN3m0OjU9UJ/SnJRXyxkP+vWRytqK1U1S2pRulHn7IFvHg9eh1rle7M0LWqBVTRVLRm0J9FddqlfA+ZVOyJmOsh18bx9LqZ1VsVbRVtavW5Uv6rrqRWUVOt9pyWUy2nE6HeoNGo1Eoc/wx0z8u18fPzh+3qP7VUrKoaXzvFW/hctQ2QdIerfNfaLr6lqXVPqOTvv2m4nxU3BtxSzbLfb5J9x6ZCP/AR59EkAwh/AuwAAAABJRU5ErkJggg==') repeat-x;
+      background: url('data:image/png;base64,...') repeat-x;
       background-size: contain;
-      animation: scroll-clouds 30s linear infinite;
+      animation: scroll-clouds 60s linear infinite;
       text-align: center;
       padding: 60px 20px;
       border-bottom: 6px solid #111;
@@ -39,8 +40,8 @@
     }
 
     @keyframes scroll-clouds {
-      from { background-position: 0 0; }
-      to { background-position: -2000px 0; }
+      0% { background-position: 0 0; }
+      100% { background-position: -2000px 0; }
     }
 
     header h1 {
@@ -55,7 +56,7 @@
 
     header p {
       font-size: 0.75rem;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     .toggle {
@@ -68,6 +69,16 @@
       padding: 6px 14px;
       font-size: 0.5rem;
       cursor: pointer;
+    }
+
+    .coin-counter {
+      font-size: 0.8rem;
+      background: #222;
+      color: #ffeb3b;
+      padding: 8px 14px;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: inline-block;
     }
 
     .container {
@@ -158,10 +169,26 @@
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 20px 0 60px;
       font-size: 0.6rem;
       background: #212121;
       color: #eee;
+      position: relative;
+    }
+
+    .mario {
+      position: absolute;
+      bottom: 10px;
+      left: -64px;
+      width: 48px;
+      height: 48px;
+      background: url('https://i.ibb.co/Xyx8QMb/mario-walk.gif') no-repeat center/contain;
+      animation: walk-mario 15s linear infinite;
+    }
+
+    @keyframes walk-mario {
+      0% { left: -64px; }
+      100% { left: 100%; }
     }
   </style>
 </head>
@@ -171,6 +198,7 @@
     <div class="toggle" onclick="toggleMode()">🌙 Toggle</div>
     <h1>YOGESH SRINIVAS</h1>
     <p>Data Engineer</p>
+    <div class="coin-counter">🪙 Coins: <span id="coin-count">0</span></div>
   </header>
 
   <div class="container">
@@ -208,15 +236,18 @@
         <a href="tel:+919743579039">📞 Call</a>
       </div>
     </section>
+
   </div>
 
   <footer>
     &copy; 2025 Yogesh | Powered by Pixels & Pipelines
+    <div class="mario"></div>
   </footer>
 
   <audio id="coin-sound" src="https://vgmsite.com/soundtracks/super-mario-bros-game-sound-effects/bnflprhq/1-01%20Coin.mp3" preload="auto"></audio>
 
   <script>
+    let coins = 0;
     function toggleMode() {
       document.body.classList.toggle('dark');
     }
@@ -228,9 +259,14 @@
       coin.style.left = e.target.offsetLeft + 'px';
       coin.style.top = e.target.offsetTop + 'px';
       e.currentTarget.appendChild(coin);
+
       const sound = document.getElementById("coin-sound");
       sound.currentTime = 0;
       sound.play();
+
+      coins++;
+      document.getElementById("coin-count").innerText = coins;
+
       setTimeout(() => coin.remove(), 600);
     }
   </script>
