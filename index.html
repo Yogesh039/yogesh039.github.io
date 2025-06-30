@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yogesh | Game‑Themed Portfolio</title>
+  <title>Yogesh | Game Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -29,7 +29,7 @@
     }
 
     header {
-      background: url('https://i.ibb.co/zfqWBLq/pixel-clouds.png') repeat-x;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAqCAYAAABOrUJ9AAAACXBIWXMAABYlAAAWJQFJUiTwAAAExUlEQVR4nO2Zz2tcVRjHf+e9rTdxKUQlqZDmFiCKhEtAy6OYFBJSNGEgx8RJQi5CAw8iI0yW9GRZiEkk3EA0RlAQkWY8QIIeWixok1ExPUEEx0RLsRZq9X9fYZ5dn93bnfnvc851v6fH91zvnzvnzP2e5zrnP+UY3zvRM8PCtq1N7RnQKgB2AmcB3oCOAHPgT8BWdga2GHEgXwFXAWkZGbAAnS1J6+rdbvUJk/H/h9jLk2oMi57XQmtQHXgNO7y1Joz13MiB2xBPbBNWG8HYCGkG7qSlAPcBNcAycBjZyTtADsBH4JuO8DMFtYkPtANsB+xNEcL7tAd+A3eAHuYjO7sMCvSYvL0A3geODfDfAlMF7wnSUHR30AuB3cArXAAeCa28LssF3QXTssNcgLfA9oF+TwADfgYYH0Go2bAU7LU+pjwFfjo9+YAs4DMqLbgFeAH7BM1PY18Dd4AtUG3M1EQ+ENkph9v8BQb26uxbgJPBq8HHgrj8YOtDdqbyo9Y/YB7YKzpGe5sX1xM8HvcVTV2gB+9FHQscMDrVPXX2kPlYYx2sD1mGp63gFGH8N8KY8Gp4LvAI2ivddX8Ub93VcMFUYemzn1tDwWfx3/N0kDZ0ByawETvXfXNcPHhJdiYZV4bO8CrhALazfaOguc16eBfQGVgXtKvlz0tw0EnLxhSp8Fy4Uvnk95pDYFQ3BWa99ZyRXbV5eTn+Wtx5b1RPxNsK75T2gFTzHZHZ6ieFurWn+mvUEXavUVy9qitVNStqGlSlVLXYOGEN3m0OjU9UJ/SnJRXyxkP+vWRytqK1U1S2pRulHn7IFvHg9eh1rle7M0LWqBVTRVLRm0J9FddqlfA+ZVOyJmOsh18bx9LqZ1VsVbRVtavW5Uv6rrqRWUVOt9pyWUy2nE6HeoNGo1Eoc/wx0z8u18fPzh+3qP7VUrKoaXzvFW/hctQ2QdIerfNfaLr6lqXVPqOTvv2m4nxU3BtxSzbLfb5J9x6ZCP/AR59EkAwh/AuwAAAABJRU5ErkJggg==') repeat-x;
       background-size: contain;
       animation: scroll-clouds 30s linear infinite;
       text-align: center;
@@ -84,13 +84,6 @@
       padding: 30px;
       margin-bottom: 30px;
       box-shadow: 6px 6px 0 #000;
-      animation: bounceIn 0.6s ease;
-    }
-
-    @keyframes bounceIn {
-      0%   { transform: scale(0.5); opacity: 0; }
-      60%  { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); }
     }
 
     .block h2 {
@@ -123,11 +116,10 @@
 
     .coin {
       position: absolute;
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       background-image: url('https://i.ibb.co/WnSnFsC/mario-coin.gif');
-      background-size: contain;
-      background-repeat: no-repeat;
+      background-size: cover;
       animation: coin-pop 0.6s ease-out forwards;
       pointer-events: none;
     }
@@ -139,7 +131,6 @@
 
     .projects li {
       margin: 12px 0;
-      line-height: 1.6;
       font-size: 0.7rem;
     }
 
@@ -152,11 +143,6 @@
       color: #000;
       text-decoration: none;
       font-size: 0.7rem;
-      transition: background 0.3s ease;
-    }
-
-    .contact a:hover {
-      background: #ffcc66;
     }
 
     .resume-button {
@@ -168,11 +154,6 @@
       margin-top: 20px;
       border: 3px solid #000;
       text-decoration: none;
-      transition: transform 0.2s;
-    }
-
-    .resume-button:hover {
-      transform: scale(1.1);
     }
 
     footer {
@@ -189,7 +170,7 @@
   <header>
     <div class="toggle" onclick="toggleMode()">🌙 Toggle</div>
     <h1>YOGESH SRINIVAS</h1>
-    <p>Data Engineer</p>
+    <p>Data Engineer | Powered by Pixels & Pipelines</p>
   </header>
 
   <div class="container">
@@ -233,6 +214,8 @@
     &copy; 2025 Yogesh | Powered by Pixels & Pipelines
   </footer>
 
+  <audio id="coin-sound" src="https://vgmsite.com/soundtracks/super-mario-bros-game-sound-effects/bnflprhq/1-01%20Coin.mp3" preload="auto"></audio>
+
   <script>
     function toggleMode() {
       document.body.classList.toggle('dark');
@@ -242,10 +225,12 @@
       if (!e.target.matches('span')) return;
       const coin = document.createElement('div');
       coin.className = 'coin';
-      const rect = e.target.getBoundingClientRect();
       coin.style.left = e.target.offsetLeft + 'px';
       coin.style.top = e.target.offsetTop + 'px';
       e.currentTarget.appendChild(coin);
+      const sound = document.getElementById("coin-sound");
+      sound.currentTime = 0;
+      sound.play();
       setTimeout(() => coin.remove(), 600);
     }
   </script>
