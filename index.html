@@ -4,148 +4,186 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yogesh Srinivas | Data Engineer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    :root {
+      --bg-light: #f4f7fa;
+      --bg-dark: #1c1e26;
+      --card-light: #fff;
+      --card-dark: #2a2d3a;
+      --text-light: #333;
+      --text-dark: #f5f5f5;
+      --accent: #2575fc;
+    }
+
+    [data-theme="dark"] {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    [data-theme="dark"] section {
+      background-color: var(--card-dark);
+    }
+
+    [data-theme="dark"] .contact a {
+      background: #333;
+      color: #f5f5f5;
+    }
+
+    [data-theme="dark"] .contact a:hover {
+      background: #444;
     }
 
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #f4f7fa, #e8ecf3);
-      color: #333;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      scroll-behavior: smooth;
+      transition: background 0.4s ease, color 0.4s ease;
     }
 
     header {
       background: linear-gradient(120deg, #6a11cb, #2575fc);
       color: white;
-      padding: 60px 20px;
+      padding: 80px 20px 60px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      position: relative;
     }
 
     header h1 {
+      font-size: 3.2rem;
       margin: 0;
-      font-size: 3rem;
     }
 
     header p {
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 1.2rem;
     }
 
+    .toggle-theme {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-theme:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .typewriter {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards, blink 0.75s infinite;
+    }
+
+    @keyframes typing {
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       padding: 40px 20px;
     }
 
     section {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(6px);
+      background: var(--card-light);
       padding: 30px;
       border-radius: 20px;
       margin-bottom: 40px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     section:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
     }
 
     section h2 {
       font-size: 2rem;
-      color: #2575fc;
+      color: var(--accent);
       margin-bottom: 20px;
       border-bottom: 2px solid #eee;
       padding-bottom: 10px;
     }
 
-    .skills span {
-      display: inline-block;
-      padding: 10px 15px;
-      margin: 6px;
-      font-weight: 600;
-      border-radius: 12px;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .skills span:hover {
-      transform: scale(1.1);
-    }
-
-    .projects ul {
-      padding-left: 20px;
-    }
-
-    .projects li {
-      margin-bottom: 12px;
-      line-height: 1.6;
-    }
-
-    .contact {
-      display: flex;
-      flex-wrap: wrap;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      align-items: center;
+    }
+
+    .skills span, .card {
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .skills span:hover, .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card {
+      background-color: #fafafa;
     }
 
     .contact a {
       display: flex;
       align-items: center;
       gap: 10px;
-      color: #333;
       text-decoration: none;
       font-weight: 600;
       background: #f5f7fa;
       padding: 10px 15px;
       border-radius: 12px;
       transition: all 0.3s ease;
+      color: inherit;
     }
 
     .contact a:hover {
       background: #e0e7ff;
-      transform: translateY(-2px);
-    }
-
-    .contact img {
-      width: 22px;
-      height: 22px;
-    }
-
-    .message-form {
-      margin-top: 30px;
     }
 
     .message-form textarea {
       width: 100%;
       height: 120px;
       padding: 12px;
-      font-size: 1rem;
       border-radius: 12px;
       border: 1px solid #ccc;
-      resize: vertical;
     }
 
     .message-form button {
       margin-top: 10px;
       padding: 12px 24px;
-      background-color: #2575fc;
+      background-color: var(--accent);
       color: white;
       border: none;
       border-radius: 10px;
       font-weight: bold;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .message-form button:hover {
-      background-color: #1a5dcb;
     }
 
     footer {
@@ -154,66 +192,65 @@
       font-size: 0.9rem;
       color: #777;
     }
+
+    .resume-button {
+      margin-top: 10px;
+      display: inline-block;
+      background-color: #2575fc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .resume-button:hover {
+      background-color: #1a5dcb;
+    }
   </style>
 </head>
 <body>
 
   <header data-aos="fade-down">
+    <div class="toggle-theme" onclick="toggleTheme()">🌙 Toggle Theme</div>
     <h1>Yogesh Srinivas</h1>
-    <p>Data Engineer | Bangalore, India</p>
+    <div class="typewriter">Data Engineer | 3.5+ years | Bangalore</div>
   </header>
 
   <div class="container">
 
     <section data-aos="fade-up">
       <h2>About Me</h2>
-      <p>I’m Yogesh, a passionate data engineer based in Bangalore with over 3.5 years of experience in designing and optimizing robust data pipelines. I specialize in building ETL/ELT workflows using Python, SQL, and PySpark on platforms like Databricks. My work spans across Salesforce, SharePoint, Hadoop ecosystems, and Tableau Prep. Known for my performance tuning skills, I ensure scalable, compliant, and reliable data solutions that drive business success.</p>
+      <p>I’m Yogesh, a passionate data engineer with experience in designing and optimizing pipelines using Python, SQL, PySpark, and Databricks. I automate data workflows across cloud and on-prem platforms, and thrive at the intersection of analytics and engineering.</p>
+      <a href="Yogesh_Srinivas_Resume.pdf" class="resume-button" target="_blank">📄 View My Resume</a>
     </section>
 
     <section class="skills" data-aos="zoom-in-up">
       <h2>Skills</h2>
-      <span style="background-color:#e0f7fa; color:#00796b;">Python</span>
-      <span style="background-color:#fce4ec; color:#c2185b;">SQL</span>
-      <span style="background-color:#f3e5f5; color:#6a1b9a;">PySpark</span>
-      <span style="background-color:#e8f5e9; color:#2e7d32;">Databricks</span>
-      <span style="background-color:#fff3e0; color:#ef6c00;">Tableau Prep</span>
-      <span style="background-color:#ede7f6; color:#512da8;">ETL/ELT</span>
-      <span style="background-color:#e1f5fe; color:#0277bd;">Data Quality</span>
-      <span style="background-color:#fbe9e7; color:#bf360c;">Automation</span>
-      <span style="background-color:#f1f8e9; color:#33691e;">Hive</span>
-      <span style="background-color:#ede7f6; color:#5e35b1;">Sqoop</span>
+      <div class="grid">
+        <span>Python</span><span>SQL</span><span>PySpark</span><span>Databricks</span>
+        <span>Tableau Prep</span><span>ETL Pipelines</span><span>Hive</span><span>Sqoop</span><span>Data Quality</span>
+      </div>
     </section>
 
     <section class="projects" data-aos="fade-right">
       <h2>Projects</h2>
-      <ul>
-        <li><strong>Salesforce to Databricks Pipeline (Honeywell):</strong> Automated ingestion and transformation of Salesforce CRM data into Databricks for unified analytics.</li>
-        <li><strong>SharePoint Integration ETL:</strong> Enabled data extraction from SharePoint and scheduled workflows in Databricks.</li>
-        <li><strong>Tableau Prep to Databricks Migration (LEGOAI):</strong> Migrated multiple prep flows into efficient PySpark workflows.</li>
-        <li><strong>Retail Sales Pipeline (Tech Mahindra):</strong> Ingested Oracle data via Sqoop, transformed using Hive & Spark, and visualized with R and ggplot.</li>
-        <li><strong>ETL Monitoring & Validation:</strong> Built validation layers and alert mechanisms for compliance and data quality assurance.</li>
-      </ul>
+      <div class="grid">
+        <div class="card">📊 <strong>Salesforce to Databricks</strong><br/>Automated ETL from SFDC for Honeywell</div>
+        <div class="card">🔗 <strong>SharePoint ETL</strong><br/>Automated ingestion & transformation to Lakehouse</div>
+        <div class="card">📈 <strong>Tableau Prep Migration</strong><br/>Migrated ETL to PySpark for LEGOAI</div>
+        <div class="card">🛍️ <strong>Retail Sales ETL</strong><br/>Sqoop + Hive + Spark pipeline for e-commerce</div>
+        <div class="card">🛡️ <strong>Data Validation Framework</strong><br/>Built quality checks and alerting</div>
+      </div>
     </section>
 
     <section data-aos="fade-left">
       <h2>Contact Me</h2>
       <div class="contact">
-        <a href="mailto:yogeshsrin@gmail.com">
-          <img src="https://static.vecteezy.com/system/resources/previews/022/484/516/non_2x/google-mail-gmail-icon-logo-symbol-free-png.png" alt="Email" />
-          yogeshsrin@gmail.com
-        </a>
-        <a href="tel:+919743579039">
-          <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone" />
-          +91-9743579039
-        </a>
-        <a href="https://github.com/Yogesh039" target="_blank">
-          <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub" />
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/yogesh-s-315a28166" target="_blank">
-          <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn" />
-          LinkedIn
-        </a>
+        <a href="mailto:yogeshsrin@gmail.com">📧 yogeshsrin@gmail.com</a>
+        <a href="tel:+919743579039">📞 +91-9743579039</a>
+        <a href="https://github.com/Yogesh039" target="_blank">🐱 GitHub</a>
+        <a href="https://www.linkedin.com/in/yogesh-s-315a28166" target="_blank">🔗 LinkedIn</a>
       </div>
 
       <div class="message-form">
@@ -229,13 +266,17 @@
     &copy; 2025 Yogesh Srinivas
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      offset: 120,
-      once: true
-    });
+    AOS.init({ duration: 800, offset: 120, once: true });
+
+    function toggleTheme() {
+      const theme = document.body.getAttribute('data-theme');
+      if (theme === 'dark') {
+        document.body.removeAttribute('data-theme');
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+      }
+    }
   </script>
 </body>
 </html>
