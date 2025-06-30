@@ -6,21 +6,36 @@
   <title>Yogesh | Game‑Themed Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-light: linear-gradient(to bottom, #87ceeb, #b6e5f3);
+      --bg-dark: #0a0f1b;
+      --header-light: #ffff00;
+      --header-dark: #ffcc00;
+      --text-light: #ffffff;
+      --text-dark: #f0f0f0;
+    }
+
     body {
       margin: 0;
       font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(to bottom, #87ceeb, #b6e5f3);
-      overflow-x: hidden;
-      color: #fff;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.5s, color 0.5s;
+    }
+
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
     }
 
     header {
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEoAAAAqCAYAAAAUJM0rAAACFUlEQVRo3u3aPSwDYRzH8UZEbAYiYrDYjLZGpIPBJLGwSKwi0k1iYBKDdFJsEiMxSZgsFZJGiGjqJWEhSKuaNKRUG8r5PfI8SXOud72+PH2eu2f47Ndv7+V5/nee/G6bh5MWmIV9iEMWvkGjfiADD7AHk9BU6+PSNK0kPAINwwXkC6KU6gvC4HVyKB/clhHHCDnbTqHbSaEaYIv+OK3KyBk274RQrXBXg0B6B/QPkTIUiZTiEIm5gkbZQjXTJ5nG2ZFsocJ1iMQEZQk1VcdIGl2L9Yoeitwj3uocirgRPVRAgEjMoMihkgKFStIzK063QVHYhKF6h/IKFMlKGpaNlhM8Qq1JFIp5gQHeoSIShmJPST/PUElJQ7FN9hivUGmJQxE56OQRKiN5qL/NNY9QKQeEIpdgR7VC9cEqHeGeUyEHXHrMUiWhyKx6BV4dEsNMtNxQI4Ls33h5LidUoEYjXKEXoXZDLbgsEBOzE8qne8fmJhE7oWIujUQcwhyMmy0VSKRRF0cyWlclYMYo1LEKZOgRugpDpVWUot5ZLI8LlwN23bNQKoY1vwpVmmsS6kOFsPRJQl2qENZIqGkVwnp9xb5nUksEcxm2hZlQMcy3OYXTgx0VpOi2pl8/jwqpMP9sF5twBl08ctE7I/dws5l5D5y4OBj51HvdzluYdlik0RL06cjkKpSlB1Span5x/AQb5Hfrxyy/oU5ISeVw53AAAAAASUVORK5CYII=') repeat-x;
+      background: url('https://i.ibb.co/zfqWBLq/pixel-clouds.png') repeat-x;
       background-size: contain;
       animation: scroll-clouds 30s linear infinite;
       text-align: center;
       padding: 60px 20px;
       border-bottom: 6px solid #111;
+      position: relative;
     }
 
     @keyframes scroll-clouds {
@@ -30,14 +45,29 @@
 
     header h1 {
       font-size: 1.5rem;
-      color: #ffff00;
+      color: var(--header-light);
       text-shadow: 2px 2px #000;
+    }
+
+    body.dark header h1 {
+      color: var(--header-dark);
     }
 
     header p {
       font-size: 0.75rem;
-      color: #fff;
       margin-top: 20px;
+    }
+
+    .toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #000;
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 6px 14px;
+      font-size: 0.5rem;
+      cursor: pointer;
     }
 
     .container {
@@ -64,9 +94,14 @@
     }
 
     .block h2 {
-      color: #00e5ff;
+      color: #ffff33;
       font-size: 1rem;
       margin-bottom: 20px;
+      text-shadow: 1px 1px #000;
+    }
+
+    .skills {
+      position: relative;
     }
 
     .skills span {
@@ -78,11 +113,28 @@
       padding: 10px 14px;
       margin: 6px;
       font-size: 0.6rem;
-      transition: transform 0.3s ease;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
 
     .skills span:hover {
       transform: scale(1.15);
+    }
+
+    .coin {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-image: url('https://i.ibb.co/WnSnFsC/mario-coin.gif');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: coin-pop 0.6s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes coin-pop {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-50px); opacity: 0; }
     }
 
     .projects li {
@@ -135,6 +187,7 @@
 <body>
 
   <header>
+    <div class="toggle" onclick="toggleMode()">🌙 Toggle</div>
     <h1>YOGESH SRINIVAS</h1>
     <p>Data Engineer | Powered by Pixels & Pipelines</p>
   </header>
@@ -149,7 +202,7 @@
 
     <section class="block">
       <h2>🛠️ Skills</h2>
-      <div class="skills">
+      <div class="skills" onclick="spawnCoin(event)">
         <span>Python</span><span>SQL</span><span>PySpark</span><span>Databricks</span>
         <span>ETL</span><span>Hive</span><span>Tableau Prep</span><span>Automation</span>
       </div>
@@ -174,12 +227,27 @@
         <a href="tel:+919743579039">📞 Call</a>
       </div>
     </section>
-
   </div>
 
   <footer>
     &copy; 2025 Yogesh | Powered by Pixels & Pipelines
   </footer>
 
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+    }
+
+    function spawnCoin(e) {
+      if (!e.target.matches('span')) return;
+      const coin = document.createElement('div');
+      coin.className = 'coin';
+      const rect = e.target.getBoundingClientRect();
+      coin.style.left = e.target.offsetLeft + 'px';
+      coin.style.top = e.target.offsetTop + 'px';
+      e.currentTarget.appendChild(coin);
+      setTimeout(() => coin.remove(), 600);
+    }
+  </script>
 </body>
 </html>
