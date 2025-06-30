@@ -1,278 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yogesh Srinivas | Data Engineer Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <meta charset="UTF-8">
+  <title>Yogesh | Game-Themed Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Retro Pixel Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-light: #f4f7fa;
-      --bg-dark: #1c1e26;
-      --card-light: #fff;
-      --card-dark: #2a2d3a;
-      --text-light: #333;
-      --text-dark: #f5f5f5;
-      --accent: #2575fc;
-    }
-
-    [data-theme="dark"] {
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-    }
-
-    [data-theme="dark"] section {
-      background-color: var(--card-dark);
-    }
-
-    [data-theme="dark"] .skills span,
-    [data-theme="dark"] .card {
-      background: #333;
-      color: #f5f5f5;
-    }
-
-    [data-theme="dark"] .contact a {
-      background: #333;
-      color: #f5f5f5;
-    }
-
-    [data-theme="dark"] .contact a:hover {
-      background: #444;
-    }
-
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-light);
-      scroll-behavior: smooth;
-      transition: background 0.4s ease, color 0.4s ease;
+      font-family: 'Press Start 2P', cursive;
+      background: url('https://i.imgur.com/fnVd1KV.png') repeat;
+      color: #fff;
+      overflow-x: hidden;
     }
 
     header {
-      background: linear-gradient(120deg, #6a11cb, #2575fc);
-      color: white;
-      padding: 80px 20px 60px;
+      background: url('https://i.imgur.com/6PLsUjr.png') repeat-x;
       text-align: center;
-      position: relative;
+      padding: 60px 20px;
+      border-bottom: 8px solid #333;
     }
 
     header h1 {
-      font-size: 3.2rem;
-      margin: 0;
-    }
-
-    .toggle-theme {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-      font-weight: 600;
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-
-    .toggle-theme:hover {
-      background: rgba(255,255,255,0.3);
-    }
-
-    .typewriter {
       font-size: 1.5rem;
-      margin-top: 10px;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid white;
-      width: 0;
-      animation: typing 3s steps(40, end) forwards, blink 0.75s infinite;
+      color: #ffcc00;
+      text-shadow: 2px 2px #000;
     }
 
-    @keyframes typing {
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
+    header p {
+      margin-top: 20px;
+      font-size: 0.75rem;
+      color: #fff;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: auto;
       padding: 40px 20px;
     }
 
-    section {
-      background: var(--card-light);
-      padding: 30px;
-      border-radius: 20px;
-      margin-bottom: 40px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-4px);
-    }
-
-    section h2 {
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 20px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .skills span, .card {
-      background: #f0f0f0;
-      color: #000;
-      padding: 15px;
+    .block {
+      background: url('https://i.imgur.com/lUJPWbB.png');
+      border: 4px solid #000;
       border-radius: 12px;
-      font-weight: 600;
-      text-align: center;
-      transition: transform 0.3s ease;
+      box-shadow: 5px 5px 0 #000;
+      margin-bottom: 30px;
+      padding: 30px;
     }
 
-    .skills span:hover, .card:hover {
-      transform: scale(1.05);
+    .block h2 {
+      color: #00ffcc;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #008f11;
+      color: #fff;
+      border: 2px solid #000;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 6px;
+      font-size: 0.65rem;
+      text-shadow: 1px 1px #000;
+    }
+
+    .projects li {
+      margin: 12px 0;
+      line-height: 1.5;
+      font-size: 0.7rem;
     }
 
     .contact a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display: inline-block;
+      background: #ffa500;
+      padding: 10px 14px;
+      margin: 10px 10px 0 0;
+      border: 3px solid #000;
+      color: #000;
       text-decoration: none;
-      font-weight: 600;
-      background: #f5f7fa;
-      padding: 10px 15px;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      color: inherit;
+      font-size: 0.7rem;
     }
 
-    .contact a:hover {
-      background: #e0e7ff;
-    }
-
-    .message-form textarea {
-      width: 100%;
-      height: 120px;
-      padding: 12px;
-      border-radius: 12px;
-      border: 1px solid #ccc;
-    }
-
-    .message-form button {
-      margin-top: 10px;
-      padding: 12px 24px;
-      background-color: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
+    .resume-button {
+      display: inline-block;
+      background: #ff0000;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 0.7rem;
+      margin-top: 20px;
+      border: 3px solid #000;
+      text-decoration: none;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    .resume-button {
-      margin-top: 10px;
-      display: inline-block;
-      background-color: #2575fc;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .resume-button:hover {
-      background-color: #1a5dcb;
+      font-size: 0.6rem;
+      background: #111;
+      color: #eee;
     }
   </style>
 </head>
 <body>
 
-  <header data-aos="fade-down">
-    <div class="toggle-theme" onclick="toggleTheme()">🌙 Toggle Theme</div>
-    <h1>Yogesh Srinivas</h1>
-    <div class="typewriter">Data Engineer | 3.5+ years | Bangalore</div>
+  <header>
+    <h1>YOGESH SRINIVAS</h1>
+    <p>Data Engineer | Pixel Power Mode Activated!</p>
   </header>
 
   <div class="container">
 
-    <section data-aos="fade-up">
-      <h2>About Me</h2>
-      <p>I’m Yogesh, a passionate data engineer with experience in designing and optimizing pipelines using Python, SQL, PySpark, and Databricks. I automate data workflows across cloud and on-prem platforms, and thrive at the intersection of analytics and engineering.</p>
-      <a href="https://drive.google.com/uc?export=download&id=1v4FBubzT7fpZXEm3NBK8e1EvY8J70_24" class="resume-button" target="_blank">📄 View My Resume</a>
+    <section class="block">
+      <h2>🎮 About Me</h2>
+      <p>I’m Yogesh, a data engineer with a love for building powerful pipelines and even cooler portfolio sites. I code in Python, ride the Spark, and crush bugs like Goombas!</p>
+      <a class="resume-button" href="https://drive.google.com/uc?export=download&id=1v4FBubzT7fpZXEm3NBK8e1EvY8J70_24" target="_blank">📄 Download Resume</a>
     </section>
 
-    <section class="skills" data-aos="zoom-in-up">
-      <h2>Skills</h2>
-      <div class="grid">
-        <span>Python</span><span>SQL</span><span>PySpark</span><span>Databricks</span>
-        <span>Tableau Prep</span><span>ETL Pipelines</span><span>Hive</span><span>Sqoop</span><span>Data Quality</span>
+    <section class="block">
+      <h2>🛠️ Skills</h2>
+      <div class="skills">
+        <span>Python</span>
+        <span>SQL</span>
+        <span>PySpark</span>
+        <span>Databricks</span>
+        <span>ETL</span>
+        <span>Hive</span>
+        <span>Tableau Prep</span>
+        <span>Automation</span>
       </div>
     </section>
 
-    <section class="projects" data-aos="fade-right">
-      <h2>Projects</h2>
-      <div class="grid">
-        <div class="card">📊 <strong>Salesforce to Databricks</strong><br/>Automated ETL from SFDC for Honeywell</div>
-        <div class="card">🔗 <strong>SharePoint ETL</strong><br/>Automated ingestion & transformation to Lakehouse</div>
-        <div class="card">📈 <strong>Tableau Prep Migration</strong><br/>Migrated ETL to PySpark for LEGOAI</div>
-        <div class="card">🛍️ <strong>Retail Sales ETL</strong><br/>Sqoop + Hive + Spark pipeline for e-commerce</div>
-        <div class="card">🛡️ <strong>Data Validation Framework</strong><br/>Built quality checks and alerting</div>
-      </div>
+    <section class="block">
+      <h2>🧱 Projects</h2>
+      <ul class="projects">
+        <li>🔌 SFDC to Databricks ETL — Cloud integration magic</li>
+        <li>🧠 Healthcare pipelines — Data that saves lives</li>
+        <li>📊 Retail Analytics — PySpark on fire!</li>
+        <li>🌐 Web scraping ETL — Automated and deployed</li>
+      </ul>
     </section>
 
-    <section data-aos="fade-left">
-      <h2>Contact Me</h2>
+    <section class="block">
+      <h2>📬 Contact</h2>
       <div class="contact">
-        <a href="mailto:yogeshsrin@gmail.com">📧 yogeshsrin@gmail.com</a>
-        <a href="tel:+919743579039">📞 +91-9743579039</a>
+        <a href="mailto:yogeshsrin@gmail.com">📧 Email</a>
         <a href="https://github.com/Yogesh039" target="_blank">🐱 GitHub</a>
         <a href="https://www.linkedin.com/in/yogesh-s-315a28166" target="_blank">🔗 LinkedIn</a>
-      </div>
-
-      <div class="message-form">
-        <form action="mailto:yogeshsrin@gmail.com" method="post" enctype="text/plain">
-          <textarea name="message" placeholder="Write a message..."></textarea>
-          <button type="submit">Send Message</button>
-        </form>
+        <a href="tel:+919743579039">📞 Call Me</a>
       </div>
     </section>
+
   </div>
 
-  <footer data-aos="fade-up">
-    &copy; 2025 Yogesh Srinivas
+  <footer>
+    &copy; 2025 Yogesh | Built in Hero Mode
   </footer>
 
-  <script>
-    AOS.init({ duration: 800, offset: 120, once: true });
-    function toggleTheme() {
-      const theme = document.body.getAttribute('data-theme');
-      if (theme === 'dark') {
-        document.body.removeAttribute('data-theme');
-      } else {
-        document.body.setAttribute('data-theme', 'dark');
-      }
-    }
-  </script>
 </body>
 </html>
