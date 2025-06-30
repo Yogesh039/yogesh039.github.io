@@ -3,130 +3,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yogesh | Pixel Art Showcase</title>
+  <title>Yogesh</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html, body {
       font-family: 'Press Start 2P', cursive;
-      background-color: #111;
-      color: white;
       scroll-behavior: smooth;
+      background: #1d1d1d;
+      color: white;
     }
 
-    .section {
+    section {
       min-height: 100vh;
+      padding: 60px 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-size: 64px 64px;
+      flex-direction: column;
+      background-size: cover;
       background-repeat: repeat;
       text-align: center;
-      padding: 60px 20px;
     }
 
-    .section h1, .section h2, .section p {
-      background: rgba(0,0,0,0.6);
-      padding: 20px;
-      border: 3px solid #fff;
+    .title-card {
+      background: rgba(0,0,0,0.75);
+      padding: 30px;
+      border: 4px solid #fff;
       box-shadow: 6px 6px 0 #000;
       max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .title-card h1, .title-card h2, .title-card p {
+      margin-bottom: 20px;
     }
 
     .sky {
-      background-image: url('https://i.ibb.co/fxCQBGf/pixel-sky-blue.png');
+      background-image: url('https://i.ibb.co/gmnYYr4/sky-bg.png');
     }
 
-    .brick {
-      background-image: url('https://i.ibb.co/D4f5Pt6/brick-tile.png');
-    }
-
-    .grass {
-      background-image: url('https://cdn.jsdelivr.net/gh/pboop/open_game_art_assets/grass_tile.png');
-    }
-
-    .water {
-      background-image: url('https://i.ibb.co/TYF8x6y/water-tile.png');
+    .ground {
+      background-image: url('https://i.ibb.co/vqYhPqC/mario-ground.png');
     }
 
     .stone {
-      background-image: url('https://i.ibb.co/3z4Hswj/stone-tile-dark.png');
+      background-image: url('https://i.ibb.co/YT8mvnL/stone-bg.png');
+    }
+
+    .lava {
+      background-image: url('https://i.ibb.co/Vqx5FfS/lava-bg.png');
+    }
+
+    .clouds {
+      background-image: url('https://i.ibb.co/WGz38kM/clouds-bg.png');
+      animation: moveClouds 60s linear infinite;
+    }
+
+    @keyframes moveClouds {
+      0% { background-position: 0 0; }
+      100% { background-position: -2000px 0; }
     }
 
     a.button {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 10px;
       padding: 10px 20px;
       background: #f44336;
       color: white;
       text-decoration: none;
       border: 3px solid #fff;
+      transition: background 0.3s ease;
+    }
+
+    a.button:hover {
+      background: #d32f2f;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 0.6rem;
       background: #000;
-      color: #bbb;
+      color: #aaa;
+      font-size: 0.6rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Intro Section -->
-  <section class="section sky">
-    <div>
+  <!-- Hero Section -->
+  <section class="sky clouds">
+    <div class="title-card">
       <h1>👾 Yogesh Srinivas</h1>
-      <p>Pixel-powered Data Engineer</p>
+      <p>Data Engineer</p>
     </div>
   </section>
 
-  <!-- About Me -->
-  <section class="section brick">
-    <div>
+  <!-- About -->
+  <section class="ground">
+    <div class="title-card">
       <h2>🧱 About Me</h2>
-      <p>Hi! I’m Yogesh. I build ETL pipelines, automate data workflows, and transform business insights into visual stories. With 3.5+ years of experience, I turn raw data into structured powerups.</p>
+      <p>I build scalable ETL pipelines and data platforms using PySpark, SQL, and Databricks. Over 3.5+ years, I've tackled problems across healthcare, telecom, and retail domains.</p>
     </div>
   </section>
 
   <!-- Skills -->
-  <section class="section grass">
-    <div>
-      <h2>🌱 Skills</h2>
-      <p>Python, SQL, PySpark, Databricks, Tableau Prep, Hive, Automation</p>
+  <section class="stone">
+    <div class="title-card">
+      <h2>⚙️ Skills</h2>
+      <p>Python • SQL • PySpark • Databricks • Tableau Prep • Hive • Data Automation</p>
     </div>
   </section>
 
   <!-- Projects -->
-  <section class="section water">
-    <div>
-      <h2>💾 Projects</h2>
-      <p>Telecom ETL • Healthcare Pipelines • Web Scraping • Sales Analytics • Tableau-Databricks Migration</p>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="section stone">
-    <div>
-      <h2>📫 Contact</h2>
+  <section class="lava">
+    <div class="title-card">
+      <h2>🗃️ Projects</h2>
       <p>
-        Email: yogeshsrin@gmail.com<br>
-        Phone: +91-9743579039
-        <br>
-        <a class="button" href="https://drive.google.com/uc?export=download&id=1v4FBubzT7fpZXEm3NBK8e1EvY8J70_24" target="_blank">📄 Download Resume</a>
+        🔌 Telecom ETL | 🏥 Healthcare Pipelines | 🛍️ Retail Dashboards<br>
+        🕸️ Web Scraping | 🚚 Migration to Databricks
       </p>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Contact -->
+  <section class="ground">
+    <div class="title-card">
+      <h2>📬 Contact</h2>
+      <p>Email: yogeshsrin@gmail.com<br>Phone: +91-9743579039</p>
+      <a class="button" href="https://drive.google.com/uc?export=download&id=1v4FBubzT7fpZXEm3NBK8e1EvY8J70_24" target="_blank">📄 Download Resume</a>
+    </div>
+  </section>
+
   <footer>
-    &copy; 2025 Yogesh | Pixel Art Showcase
+    &copy; 2025 Yogesh
   </footer>
 
 </body>
