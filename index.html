@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yogesh</title>
+  <title>Yogesh | Data Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -22,6 +22,7 @@
       color: var(--text-light);
       transition: background 0.5s, color 0.5s;
       overflow-x: hidden;
+      line-height: 1.8;
     }
 
     body.dark {
@@ -34,7 +35,7 @@
       background-size: 400px;
       animation: scroll-clouds 60s linear infinite;
       text-align: center;
-      padding: 60px 20px;
+      padding: 80px 20px;
       border-bottom: 6px solid #111;
       position: relative;
     }
@@ -45,9 +46,9 @@
     }
 
     header h1 {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: var(--header-light);
-      text-shadow: 2px 2px #000;
+      text-shadow: 3px 3px #000;
     }
 
     body.dark header h1 {
@@ -55,8 +56,8 @@
     }
 
     header p {
-      font-size: 0.75rem;
-      margin-top: 20px;
+      font-size: 1rem;
+      margin-top: 15px;
     }
 
     .toggle {
@@ -67,66 +68,88 @@
       color: #fff;
       border: 2px solid #fff;
       padding: 6px 14px;
-      font-size: 0.5rem;
+      font-size: 0.6rem;
       cursor: pointer;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 50px 30px;
     }
 
     .block {
       background: url('https://cdn.jsdelivr.net/gh/pboop/open_game_art_assets/grass_tile.png') repeat;
       background-size: 32px;
       border: 4px solid #222;
-      border-radius: 10px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 6px 6px 0 #000;
+      border-radius: 14px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 8px 8px 0 #000;
     }
 
     .block h2 {
       color: #ffff33;
-      font-size: 1rem;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px #000;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px #000;
+    }
+
+    .block p, .block li {
+      font-size: 0.85rem;
     }
 
     .projects li {
-      margin: 12px 0;
-      font-size: 0.7rem;
-    }
-
-    .contact a {
-      display: inline-block;
-      background: #ffa500;
-      padding: 10px 14px;
-      margin: 8px 10px 0 0;
-      border: 3px solid #000;
-      color: #000;
-      text-decoration: none;
-      font-size: 0.7rem;
+      margin: 16px 0;
     }
 
     .resume-button {
       display: inline-block;
       background: #f44336;
       color: white;
-      padding: 12px 20px;
-      font-size: 0.7rem;
-      margin-top: 20px;
+      padding: 14px 22px;
+      font-size: 0.75rem;
+      margin-top: 25px;
       border: 3px solid #000;
       text-decoration: none;
     }
 
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skills-grid span {
+      background: #222;
+      border: 2px solid #fff;
+      padding: 6px 10px;
+      font-size: 0.7rem;
+    }
+
+    .contact a {
+      display: inline-block;
+      background: #ffa500;
+      padding: 12px 16px;
+      margin: 8px 10px 0 0;
+      border: 3px solid #000;
+      color: #000;
+      text-decoration: none;
+      font-size: 0.75rem;
+    }
+
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 30px;
       font-size: 0.6rem;
       background: #212121;
       color: #eee;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 { font-size: 1.3rem; }
+      header p { font-size: 0.7rem; }
+      .block p, .block li { font-size: 0.75rem; }
     }
   </style>
 </head>
@@ -135,30 +158,43 @@
   <header>
     <div class="toggle" onclick="toggleMode()">🌙 Toggle</div>
     <h1>YOGESH SRINIVAS</h1>
-    <p>Data Engineer</p>
+    <p>Data Engineer | ETL Architect | Cloud Pipeline Specialist</p>
   </header>
 
   <div class="container">
 
     <section class="block">
       <h2>🎮 About Me</h2>
-      <p>I’m Yogesh, a data engineer passionate about architecting scalable, fault-tolerant data pipelines. I specialize in designing end-to-end ETL workflows, integrating disparate data sources into unified analytics platforms. My toolkit includes Python, PySpark, and Databricks, with deep exposure to CI/CD, workflow orchestration, and cloud-native data services.</p>
-      <p>I automate data ingestion, cleansing, transformation, and modeling—delivering high-availability pipelines for BI and ML applications. Whether it’s crafting custom Spark jobs or tuning Delta Lake tables for real-time analytics, I thrive on building data systems that power business decisions.</p>
+      <p>I’m Yogesh, a data engineer passionate about building reliable, scalable pipelines that power analytics and machine learning. I specialize in architecting end-to-end workflows using tools like Python, PySpark, and Databricks. I’ve automated multi-source ETL, managed big data with Delta Lake, and driven insights for product, sales, and workforce teams.</p>
+      <p>I bring clean code, automation, and cloud-native engineering together to deliver high-impact data products. Let’s build data systems that scale and deliver value.</p>
       <a class="resume-button" href="https://drive.google.com/uc?export=download&id=1v4FBubzT7fpZXEm3NBK8e1EvY8J70_24" target="_blank">📄 Download Resume</a>
     </section>
 
     <section class="block">
       <h2>🛠️ Skills</h2>
-      <p>Python • SQL • PySpark • Databricks • Delta Lake • Airflow • Tableau Prep • Hive • REST APIs • Data Modeling • DataOps • Automation</p>
+      <div class="skills-grid">
+        <span>Python</span>
+        <span>SQL</span>
+        <span>PySpark</span>
+        <span>Databricks</span>
+        <span>Delta Lake</span>
+        <span>Airflow</span>
+        <span>Tableau Prep</span>
+        <span>Hive</span>
+        <span>REST APIs</span>
+        <span>Data Modeling</span>
+        <span>DataOps</span>
+        <span>Automation</span>
+      </div>
     </section>
 
     <section class="block">
       <h2>🧱 Projects</h2>
       <ul class="projects">
-        <li>🔌 <strong>Salesforce to Databricks ETL:</strong> Designed and deployed automated ingestion pipelines using REST APIs and Delta Lake, reducing manual effort by 90% and supporting real-time analytics.</li>
-        <li>👨‍⚕️ <strong>Healthcare Workforce Analytics:</strong> Built PySpark-based pipelines to ingest and process data about medical professionals, including employment trends and regional job availability, to help staffing teams with data-driven hiring strategies.</li>
-        <li>📊 <strong>Retail Analytics Engine:</strong> Integrated sales, inventory, and customer data into a unified Lakehouse using Databricks and Tableau. Built scalable dashboards with live KPIs for operations teams.</li>
-        <li>🌍 <strong>Web Scraping & ETL Automation:</strong> Developed a modular Python framework to scrape, clean, and ingest market data (stocks, commodities) into structured databases with full logging and retry logic.</li>
+        <li>🔌 <strong>Salesforce to Databricks ETL:</strong> Built resilient ingestion workflows using REST APIs + Delta Lake. Enabled near real-time processing of CRM data for analytics teams.</li>
+        <li>👨‍⚕️ <strong>Healthcare Workforce Analytics:</strong> Processed regional job and profile data of medical professionals using PySpark. Built dashboards and metrics for staffing optimization.</li>
+        <li>📊 <strong>Retail Analytics Engine:</strong> Integrated data from sales, customers, and inventory into Databricks Lakehouse. Enabled BI with Tableau dashboards showing live KPIs.</li>
+        <li>🌍 <strong>Market Data ETL:</strong> Created a full Python pipeline to scrape, clean, and store financial data with logging, retries, and scheduling logic.</li>
       </ul>
     </section>
 
