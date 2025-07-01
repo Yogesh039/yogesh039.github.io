@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-light: linear-gradient(to bottom, #a1c4fd, #c2e9fb); /* Blue to mint */
+      --bg-light: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
       --bg-dark: #121f3d;
       --text-light: #ffffff;
       --text-dark: #e0e0e0;
@@ -98,12 +98,8 @@
       text-shadow: 2px 2px #000;
     }
 
-    .block p, .block li {
+    .block p {
       font-size: 0.85rem;
-    }
-
-    .projects li {
-      margin: 16px 0;
     }
 
     .resume-button {
@@ -131,6 +127,39 @@
       color: #000;
     }
 
+    /* New Project Tiles Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .project-tile {
+      background: rgba(255, 255, 255, 0.07);
+      border: 3px solid #000;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 5px 5px 0 #000;
+      transition: transform 0.3s ease, background 0.3s;
+    }
+
+    .project-tile:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .project-tile h3 {
+      font-size: 0.85rem;
+      color: #ffff66;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px #000;
+    }
+
+    .project-tile p {
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+
     .contact a {
       display: inline-block;
       background: var(--accent-purple);
@@ -153,7 +182,7 @@
     @media screen and (max-width: 600px) {
       header h1 { font-size: 1.3rem; }
       header p { font-size: 0.7rem; }
-      .block p, .block li { font-size: 0.75rem; }
+      .block p, .project-tile p { font-size: 0.75rem; }
     }
   </style>
 </head>
@@ -194,12 +223,24 @@
 
     <section class="block">
       <h2>🧱 Projects</h2>
-      <ul class="projects">
-        <li>🔌 <strong>Salesforce to Databricks ETL:</strong> Developed automated batch pipelines using REST APIs and Delta Lake to extract CRM data and transform it for reporting purposes.</li>
-        <li>👨‍⚕️ <strong>Healthcare Workforce Analytics:</strong> Processed static datasets containing job and profile info of medical professionals using PySpark. Generated reports to assist hiring teams in workforce planning.</li>
-        <li>📊 <strong>Retail Analytics Engine:</strong> Built ETL workflows to process sales and inventory data and deliver structured outputs used in Tableau dashboards for performance insights.</li>
-        <li>🌍 <strong>Market Data Pipeline:</strong> Created a Python-based ETL to extract and clean web-sourced data like product prices and store listings. Automated loading into databases for offline analysis.</li>
-      </ul>
+      <div class="projects-grid">
+        <div class="project-tile">
+          <h3>🔌 Salesforce to Databricks ETL</h3>
+          <p>Developed automated batch pipelines using REST APIs and Delta Lake to extract CRM data and transform it for reporting purposes.</p>
+        </div>
+        <div class="project-tile">
+          <h3>👨‍⚕️ Healthcare Workforce Analytics</h3>
+          <p>Processed static datasets of healthcare workers using PySpark. Helped staffing teams understand hiring trends and regional demands.</p>
+        </div>
+        <div class="project-tile">
+          <h3>📊 Retail Analytics Engine</h3>
+          <p>Built ETL workflows for sales, inventory, and customer data. Delivered clean outputs for Tableau dashboards with real-time KPIs.</p>
+        </div>
+        <div class="project-tile">
+          <h3>🌍 Market Data Pipeline</h3>
+          <p>Created Python-based ETLs to extract and clean web-sourced data like product prices. Automated ingestion into databases for offline use.</p>
+        </div>
+      </div>
     </section>
 
     <section class="block">
