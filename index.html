@@ -9,10 +9,13 @@
     :root {
       --bg-light: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
       --bg-dark: #121f3d;
-      --text-light: #ffffff;
-      --text-dark: #e0e0e0;
-      --header-light: #ffd700;
-      --header-dark: #ffae42;
+
+      --text-light: #2d2d2d;
+      --text-dark: #e6e6e6;
+
+      --header-light: #f9ca24;
+      --header-dark: #fbc531;
+
       --accent-red: #ff6b6b;
       --accent-blue: #57cc99;
       --accent-purple: #845ec2;
@@ -51,7 +54,7 @@
     header h1 {
       font-size: 2rem;
       color: var(--header-light);
-      text-shadow: 3px 3px #000;
+      text-shadow: 2px 2px #000;
     }
 
     body.dark header h1 {
@@ -92,14 +95,16 @@
     }
 
     .block h2 {
-      color: #ffff33;
+      color: var(--header-light);
       font-size: 1.2rem;
       margin-bottom: 25px;
-      text-shadow: 2px 2px #000;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
     }
 
-    .block p {
+    .block p, .block li {
+      color: inherit;
       font-size: 0.85rem;
+      line-height: 1.7;
     }
 
     .resume-button {
@@ -127,7 +132,6 @@
       color: #000;
     }
 
-    /* New Project Tiles Grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -150,13 +154,14 @@
 
     .project-tile h3 {
       font-size: 0.85rem;
-      color: #ffff66;
+      color: #f9ca24;
       margin-bottom: 10px;
       text-shadow: 1px 1px #000;
     }
 
     .project-tile p {
       font-size: 0.75rem;
+      color: inherit;
       line-height: 1.6;
     }
 
@@ -175,8 +180,8 @@
       text-align: center;
       padding: 30px;
       font-size: 0.6rem;
-      background: #212121;
-      color: #eee;
+      background: #1e1e1e;
+      color: #aaa;
     }
 
     @media screen and (max-width: 600px) {
@@ -191,7 +196,7 @@
   <header>
     <div class="toggle" onclick="toggleMode()">🌙 Toggle</div>
     <h1>YOGESH SRINIVAS</h1>
-    <p>Data Engineer | ETL Developer </p>
+    <p>Data Engineer | ETL Developer | PySpark Enthusiast</p>
   </header>
 
   <div class="container">
